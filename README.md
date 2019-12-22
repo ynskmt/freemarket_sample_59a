@@ -112,9 +112,9 @@
 |delivery_area|string|null:false|
 |delivery_day|integer|null:false|
 |price|integer|null:false|
-|buying_comment_id|references||
-|product_image_id|references|null:false|
-|favarite_id|references||
+|buying_comment_id|references|foreign_key:true|
+|product_image_id|references|null:false, foreign_key:true|
+|favarite_id|references|foreign_key:true|
 ### Association
 - belongs_to :user
 - has_many :images, :dependent => :destroy
@@ -138,7 +138,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|string|null:false|
-|product_id|references|null:false, foreign_key:true|
+|product|references|null:false, foreign_key:true|
 ### Association
 - belongs_to :product
 
@@ -163,4 +163,5 @@
 - belongs_to :product
 - belongs_to :user
 
-https://gyazo.com/b7cc4191681dd3750a3e15e13665d693
+
+![Untitled Diagram](https://user-images.githubusercontent.com/55182736/71320187-38f95400-24eb-11ea-99b0-d2e104cc875a.png)

@@ -10,12 +10,13 @@
 
 ### Association
 - has_many :products, :dependent => :destroy
-- has_one :credit_cards, :dependent => :destroy
+- has_one :credit_card, :dependent => :destroy
 - has_one :address, :dependent => :destroy
 - has_one :user_profile, :dependent => :destroy
 - has_many :buying_lists, :dependent => :destroy
 - has_many :selling_lists, :dependent => :destroy
 - has_many :reviews, :dependent => :destroy
+- has_many :favorites, :dependent => :destroy
 
 ## User_profilesテーブル
 |Column|Type|Options|
@@ -113,6 +114,7 @@
 |price|integer|null:false|
 |buying_comment_id|references||
 |product_image_id|references|null:false|
+|favarite_id|references||
 ### Association
 - belongs_to :user
 - has_many :images, :dependent => :destroy
@@ -120,6 +122,7 @@
 - has_one :selling_list, :dependent => :destroy
 - has_one :buying_list, :dependent => :destroy
 - has_many :reviews, :dependent => :destroy
+- has_many :favorites, :dependent => :destroy
 
 ## Buying_commentsテーブル
 |Column|Type|Options|
@@ -134,7 +137,7 @@
 ## Product_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
+|image|string|null:false|
 |product_id|references|null:false, foreign_key:true|
 ### Association
 - belongs_to :product
@@ -159,3 +162,5 @@
 ### Association
 - belongs_to :product
 - belongs_to :user
+
+https://gyazo.com/b7cc4191681dd3750a3e15e13665d693

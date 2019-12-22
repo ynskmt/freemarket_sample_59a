@@ -9,10 +9,10 @@
 |authentication_code|integer|null:false|
 
 ### Association
-- has_many :products
-- has_one :credit_cards
-- has_one :address
-- has_one :user_profile
+- has_many :products, :dependent => :destroy
+- has_one :credit_cards, :dependent => :destroy
+- has_one :address, :dependent => :destroy
+- has_one :user_profile, :dependent => :destroy
 - has_many :buying_lists, :dependent => :destroy
 - has_many :selling_lists, :dependent => :destroy
 - has_many :reviews, :dependent => :destroy
@@ -90,7 +90,7 @@
 ## Brandsテーブル
 |Column|Tyep|Option|
 |------|----|-------|
-|name|string|null:false, unique:true|
+|name|string|null:false|
 
 ### Association
 - has_many :products

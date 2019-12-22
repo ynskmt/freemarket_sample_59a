@@ -4,7 +4,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false, unique:true|
-|password|string|null:false, unique:true|
+|password|string|null:false|
 |phone_num|integer|null:false, unique:true|
 |authentication_code|integer|null:false|
 
@@ -13,9 +13,9 @@
 - has_one :credit_cards
 - has_one :address
 - has_one :user_profile
-- has_many :buying_lisst
-- has_many :selling_list
-- has_many :review
+- has_many :buying_lists, :dependent => :destroy
+- has_many :selling_lists, :dependent => :destroy
+- has_many :reviews, :dependent => :destroy
 
 ## User_profilesテーブル
 |Column|Type|Options|
@@ -48,7 +48,7 @@
 ### Association
 - belongs_to: user
 
-## credit_cardsテーブル
+## Credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null:false, foreign_key:true|
@@ -59,7 +59,7 @@
 ### Association
 - belongs_to: user
 
-## buying_listsテーブル
+## Buying_listsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null:false, foreign_key:true|
@@ -69,7 +69,7 @@
 - belongs_to :user
 - belongs_to :product
 
-## favoritesテーブル
+## Favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null:false, foreign_key:true|
@@ -78,15 +78,29 @@
 ### Association
 - belongs_to :user
 - belongs_to :product
+
+## Categoriesテーブル   
+|Column|Tyep|Option|
+|------|----|-------|
+|name|string|null:false, unique:true|
+
+### Association
+- has_many :products
+
+## Brandsテーブル
+|Column|Tyep|Option|
+|------|----|-------|
+|name|string|null:false, unique:true|
+
+### Association
+- has_many :products
 
 ## Productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_name|string|null:false|
-|product_description|text|null:false|
+|name|string|null:false|
+|description|text|null:false|
 |user_id|references|null:false, foreign_key:true|
-|category|string|null: false|
-|brand|string|null:false
 |size|string|null:false|
 |condition|string|null:false|
 |delivery_charge|integer|null:false|
@@ -98,11 +112,11 @@
 |product_image_id|references|null:false|
 ### Association
 - belongs_to :user
-- has_many :images
-- has_many :buying_comment
-- has_one :selling_list
-- has_one :buying_list
-- has_many :review
+- has_many :images, :dependent => :destroy
+- has_many :buying_comments, :dependent => :destroy
+- has_one :selling_list, :dependent => :destroy
+- has_one :buying_list, :dependent => :destroy
+- has_many :reviews, :dependent => :destroy
 
 ## Buying_commentsテーブル
 |Column|Type|Options|

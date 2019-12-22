@@ -44,6 +44,7 @@
 |block|string|null:false|
 |building_name|string||
 |phone_num|integer||
+|user_id|references|null:false, foeighn_key:true|
 
 ### Association
 - belongs_to: user

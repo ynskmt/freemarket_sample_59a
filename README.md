@@ -83,9 +83,11 @@
 |Column|Tyep|Option|
 |------|----|-------|
 |name|string|null:false, unique:true|
+|ancestry|string|index:true|
 
 ### Association
 - has_many :products
+- has_ancestry
 
 ## Brandsテーブル
 |Column|Tyep|Option|

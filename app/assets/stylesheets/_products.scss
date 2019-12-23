@@ -17,8 +17,26 @@
   margin-right: $marginRight;
 }
 
+@mixin listBoxColorSet($color:rgb(255, 255, 255), $boxshadow: rgba(0, 0, 0, 0.18) 0px 2px 4px) {
+  background-color: $color;
+  box-shadow: $boxshadow;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.categoryselect {
+  color : aqua;
+}
+
+.tagselect1 {
+  background-color:rgb(234, 53, 45);
+  color : white;
+}
+
+.tagselect2 {
+  background-color:rgb(204, 204, 204);
 }
 
 .content {
@@ -83,26 +101,45 @@
         }
       }
       &__menu {
-        display: none;
         left: 0px;
         position: absolute;
         top: 44px;
         z-index: 1;
+        display: none;
+        &__list a {
+          text-decoration : none;
+          color : inherit;
+          display: block;
+          font-size: 14px;
+        }
         &__list {
-          background-color: rgb(255, 255, 255);
-          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          @include listBoxColorSet;
           width: 224px;
           &__ladies {
             width: 224px;
-            &__kind {
-              background-color: rgb(255, 255, 255);
+            &__list a {
+              padding: 8px 16px;
+            }
+            &__list {
+              @include listBoxColorSet;
               bottom: 0px;
-              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-              display: none;
               left: 224px;
               position: absolute;
               top: 0px;
               width: 224px;
+              display: none;
+              &__tops {
+                width: 224px;
+                &__list {
+                  @include listBoxColorSet;
+                  bottom: 0px;
+                  left: 224px;
+                  position: absolute;
+                  top: 0px;
+                  width: 320px;
+                  display: none;
+                }
+              }
             }
           }
         }

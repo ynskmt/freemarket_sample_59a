@@ -1,9 +1,180 @@
-.deploy {
-  background-color: blue;
-  color: red;
+@mixin aTagSet1($display: block, $fontSize:14px, $fontWeight:600, $lineHeight:36px) {
+	display: $display;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
+}
+@mixin aTagSet2($alignItem: center, $display:flex, $fontSize:14px, $height:32px, $textDecoration: none, $color: black) {
+  align-items: $alignItem;
+  display: $display;
+  font-size: $fontSize;
+  height: $height;
+  text-decoration: $textDecoration;
+  color: $color;
+}
+@mixin iconSet($color:rgb(204, 204, 204), $marginRight:10px) {
+  color: $color;
+  margin-right: $marginRight;
 }
 
-.deploy2 {
-  background-color: yellow;
-  color: green;
+* {
+  box-sizing: border-box;
+}
+
+.content {
+  width: 1020px;
+  margin: 0px auto;
+}
+
+.top-content {
+  display: flex;
+  padding: 8px 0px 0px;
+  &__logo {
+  height: 36px;
+  width: 134px;
+  margin-right: 45px;
+  }
+  &__search {
+    width: 100%;
+    position: relative;
+    &__keyword{
+      background-color: rgb(245, 245, 245);
+      font-size: 16px;
+      height: 40px;
+      line-height: 1.4em;
+      position: relative;
+      width: 100%;
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(204, 204, 204);
+      border-radius: 4px;
+      outline: none;
+      padding: 0px 50px 0px 10px;
+    }
+    &__icon {
+      cursor: pointer;
+      height: 40px;
+      position: absolute;
+      right: 0px;
+      top: 8px;
+      width: 40px;
+    }
+  }
+}
+
+.bottom-content {
+  display: flex;
+  margin-top: 8px;
+  justify-content: space-between;
+  &__item {
+    display: flex;
+    margin-left: -3px;
+    &__category {
+      cursor: pointer;
+      height: 44px;
+      position: relative;
+      z-index: 3;
+      padding: 0px 10px;
+      padding-left: 0px;
+      &__part {
+        @include aTagSet1;
+        &__icon {
+          @include iconSet(rgb(234, 53, 45), 10px)
+        }
+      }
+      &__menu {
+        display: none;
+        left: 0px;
+        position: absolute;
+        top: 44px;
+        z-index: 1;
+        &__list {
+          background-color: rgb(255, 255, 255);
+          box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+          width: 224px;
+          &__ladies {
+            width: 224px;
+            &__kind {
+              background-color: rgb(255, 255, 255);
+              bottom: 0px;
+              box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+              display: none;
+              left: 224px;
+              position: absolute;
+              top: 0px;
+              width: 224px;
+            }
+          }
+        }
+      }
+    }
+    &__brand {
+      cursor: pointer;
+      height: 44px;
+      position: relative;
+      z-index: 3;
+      padding: 0px 10px;
+      &__part {
+        @include aTagSet1;
+        &__icon {
+          @include iconSet(rgb(234, 53, 45), 10px)
+        }
+      }
+
+    }
+  }
+  &__list {
+    display: flex;
+    position: relative;
+    &__favorite {
+      padding: 0px 14px;
+      cursor: pointer;
+      &__part {
+        @include aTagSet2;
+        &__icon {
+          @include iconSet;
+          width: 19px;
+        }
+      }
+    }
+    &__notice {
+      padding: 0px 14px;
+      cursor: pointer;
+      &__part {
+        @include aTagSet2;
+        &__icon {
+          @include iconSet;
+          width: 19px;
+        }
+      }
+    }
+    &__todo {
+      padding: 0px 14px;
+      cursor: pointer;
+      &__part {
+        @include aTagSet2;
+        &__icon {
+          @include iconSet;
+          width: 19px;
+        }
+      }
+    }
+    &__mypage {
+      padding: 0px 14px;
+      cursor: pointer;
+      &__part {
+        @include aTagSet2;
+        &__icon {
+          @include iconSet;
+          width: 19px;
+        }
+        &__img {
+          margin-right: 10px;
+          width: 32px;
+          border-radius: 50%;
+          overflow: hidden;;
+        }
+      }
+    }
+  }
 }

@@ -2,8 +2,8 @@
   .content
     .top-content
       .top-content__logo
-        %a
-          = image_tag("mercari-logo.svg", class:"top-content__logo")
+        = link_to "#" do
+          = image_tag("fmarket_logo_red.svg", class:"top-content__logo")
       = form_with class: 'top-content__search', url: products_path, local: true do |f|
         = f.text_field :keyword, placeholder:'何かお探しですか？', class: 'top-content__search__keyword', id: 'top-content__search__keyword'
         %label.top-content__search__icon
@@ -12,29 +12,29 @@
     .bottom-content
       .bottom-content__item
         .bottom-content__item__category
-          %a.bottom-content__item__category__part
+          = link_to "#" ,class: "bottom-content__item__category__part" do
             = icon('fas', 'list', class: 'bottom-content__item__category__part__icon')
             カテゴリーから探す
           = render "shared/menulist"
         .bottom-content__item__brand
-          %a.bottom-content__item__brand__part
+          = link_to "#", class: "bottom-content__item__brand__part" do
             = icon('fas', 'tag', class: 'bottom-content__item__brand__part__icon')
             ブランドから探す
       %ul.bottom-content__list
         %li.bottom-content__list__favorite
-          %a.bottom-content__list__favorite__part
+          = link_to "#", class: "bottom-content__list__favorite__part" do
             = icon('far', 'heart', class: 'bottom-content__list__favorite__part__icon')
             いいね！一覧
         %li.bottom-content__list__notice
-          %a.bottom-content__list__notice__part
+          = link_to "#", class: "bottom-content__list__notice__part" do
             = icon('far', 'bell', class: 'bottom-content__list__notice__part__icon')
             お知らせ
         %li.bottom-content__list__todo
-          %a.bottom-content__list__todo__part
+          = link_to "#", class: "bottom-content__list__todo__part" do
             = icon('fas', 'check', class: 'bottom-content__list__todo__part__icon')
             やることリスト
         %li.bottom-content__list__mypage
-          = link_to edit_user_registration_path(current_user), class: 'bottom-content__list__mypage__part' do
-            = image_tag("mercari-member-picture.png",class:"bottom-content__list__mypage__part__img")
+          = link_to "#", class: 'bottom-content__list__mypage__part' do
+            = image_tag("",class:"bottom-content__list__mypage__part__img")
             マイページ
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+

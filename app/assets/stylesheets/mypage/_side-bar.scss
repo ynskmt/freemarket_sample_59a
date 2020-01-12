@@ -1,0 +1,33 @@
+.side-bar {
+  width: 280px;
+  margin: 0 40px 0 0;
+  &__nav {
+    &__list {
+      li {
+        background: #eee;
+        position: relative;
+        display: block;
+        min-height: 48px;
+        padding: 16px;
+        background: #fff;
+        font-size: 14px;
+        color: #333;
+        border-top: 1px solid #eee;
+        &:first-child {
+          border-top: 0;
+        }
+      }
+      .link {
+        .fa-chevron-right {
+          position: absolute;
+          right: 15px;
+        }
+      }
+    }
+    &__head {
+      margin: 40px 0 0;
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}

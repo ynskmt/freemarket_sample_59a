@@ -213,5 +213,34 @@
         }
       }
     }
+    &__new-registration {
+      .btn {
+        font-size: 14px;
+        line-height: 32px;
+        border-radius: 5px;
+        padding: 8px 10px;
+        margin: 10px 0;
+        border: 1px solid #ea352d;
+        background: #ea352d;
+        color: #fff;
+      }
+    }
+    &__login {
+      margin-left: 11px;
+      .btn {
+        font-size: 14px;
+        line-height: 32px;
+        border-radius: 5px;
+        padding: 8px 10px;
+        margin: 10px 0;
+        border: 1px solid #0099e8;
+        color: #0099e8;
+        transition-duration: 0.3s;
+        &:hover {
+          background: #0099e8;
+          color: #fff;
+        }
+      }
+    }
   }
 }

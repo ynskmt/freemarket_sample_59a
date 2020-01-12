@@ -1,0 +1,121 @@
+.sell-wrapper
+  = render 'shared/header-simple'
+  .sell-main
+    .sell-main__container
+      .sell-main__container__top
+        商品の情報を入力
+      = form_with model: @product, local: true do |f|
+        .sell-main__container__sell-form
+          .sell-main__container__sell-form__upload-box
+            .sell-main__container__sell-form__upload-box__head
+              出品画像
+              .sell-main__container__sell-form__upload-box__require
+                必須
+            .sell-main__container__sell-form__upload-box__bottom
+              最大10枚までアップロードできます
+            .sell-main__container__sell-form__upload-box__dropbox
+              .sell-main__container__sell-form__upload-box__dropbox__text
+                %p
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをダウンロード
+          .sell-main__container__sell-form__name
+            .sell-main__container__sell-form__name__form-group
+              %label
+                商品名
+                %span
+                  必須
+            = f.text_field :product_name, placeholder: "商品名（必須 40文字まで)"
+            .sell-main__container__sell-form__name__form-group
+              %label
+                商品の説明
+                %span
+                  必須
+            = f.text_area :product_description, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+          .sell-main__container__sell-form__detail
+            .sell-main__container__sell-form__detail__head
+              商品の詳細
+            .sell-main__container__sell-form__detail__box
+              .sell-main__container__sell-form__detail__box__form-group
+                %label
+                  カテゴリー
+                  %span
+                    必須
+              = f.collection_select :category, @category, :id, :name, {prompt: '---'}, class: 'form'
+              .sell-main__container__sell-form__detail__box__form-group
+                %label
+                  商品の状態
+                  %span
+                    必須
+              = f.collection_select :condition, @condition, :id, :name, {prompt: '---'}, class: 'form'
+          .sell-main__container__sell-form__delivery
+            .sell-main__container__sell-form__delivery__head
+              配送について
+              = link_to "?", class: "question"
+            .sell-main__container__sell-form__delivery__box
+              .sell-main__container__sell-form__delivery__box__form-group
+                %label
+                  配送料の負担
+                  %span
+                    必須
+              = f.collection_select :delivery_charge, @delivery_charge, :id, :name, {prompt: '---'},class: 'form'
+              .sell-main__container__sell-form__delivery__box__form-group
+                %label
+                  発送元の地域
+                  %span
+                    必須
+              = f.collection_select :delivery_area, @prefecture, :id, :name, {prompt: '---'}, class: 'form'
+              .sell-main__container__sell-form__delivery__box__form-group
+                %label
+                  発送までの日数
+                  %span
+                    必須
+              = f.collection_select :delivery_days, @delivery_days, :id, :name, {prompt: '---'}, class: 'form'
+          .sell-main__container__sell-form__price
+            .sell-main__container__sell-form__price__head
+              販売価格(300〜9,999,999)
+              = link_to "?", class: "question"
+            .sell-main__container__sell-form__price__box
+              .sell-main__container__sell-form__price__box__form-group
+                .sell-main__container__sell-form__price__box__form-group__left
+                  %label
+                    価格
+                    %span
+                      必須
+                .sell-main__container__sell-form__price__box__form-group__right
+                  %p
+                    ¥
+                    %div
+                      = f.text_field :price, placeholder: '例) 300'
+              .sell-main__container__sell-form__price__box__commission
+                .sell-main__container__sell-form__price__box__commission__left
+                  販売手数料(10%)
+                .sell-main__container__sell-form__price__box__commission__right
+                  -
+              .sell-main__container__sell-form__price__box__profit
+                .sell-main__container__sell-form__price__box__profit__left
+                  販売利益
+                .sell-main__container__sell-form__price__box__profit__right
+                  -
+          .sell-main__container__sell-form__btn-box
+            .sell-main__container__sell-form__btn-box__text
+              %div
+                %p
+                  = link_to "禁止されている出品", "#"
+                  、
+                  = link_to "行為" , "#"
+                  を必ずご確認ください。
+                %p
+                  またブランド品でシリアルナンバー等がある場合はご記載ください。
+                  = link_to "偽ブランドの販売", "#"
+                  は犯罪であり処罰される可能性があります。
+                %p
+                  また、出品をもちまして
+                  = link_to "加盟店規約"
+                  に同意したことになります。
+            .sell-main__container__sell-form__btn-box__exhibit-btn
+              = f.submit '出品する', class: "submit-btn"
+            .sell-main__container__sell-form__btn-box__back
+              = link_to "#" do
+                もどる
+  = render "shared/footer-simple"

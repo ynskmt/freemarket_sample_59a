@@ -1,31 +1,3 @@
-@mixin aTagSet1($display: block, $fontSize:14px, $fontWeight:600, $lineHeight:36px) {
-	display: $display;
-  font-size: $fontSize;
-  font-weight: $fontWeight;
-  line-height: $lineHeight;
-}
-@mixin aTagSet2($alignItem: center, $display:flex, $fontSize:14px, $height:32px, $textDecoration: none, $color: black) {
-  align-items: $alignItem;
-  display: $display;
-  font-size: $fontSize;
-  height: $height;
-  text-decoration: $textDecoration;
-  color: $color;
-}
-@mixin iconSet($color:rgb(204, 204, 204), $marginRight:10px) {
-  color: $color;
-  margin-right: $marginRight;
-}
-
-@mixin listBoxColorSet($color:rgb(255, 255, 255), $boxshadow: rgba(0, 0, 0, 0.18) 0px 2px 4px) {
-  background-color: $color;
-  box-shadow: $boxshadow;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 .categoryselect {
   color : aqua;
 }

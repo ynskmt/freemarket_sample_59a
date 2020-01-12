@@ -1,0 +1,48 @@
+.mypage-wrapper
+  = render 'shared/header'
+  .mypage-main
+    = render 'side-bar'
+    .mypage-main__container
+      .mypage-main__container__icon
+        .mypage-main__container__icon__content
+          = link_to "#", class: "#" do
+            .mypage-main__container__icon__content__image
+              = icon('fas', 'user', class: "icon")
+            .mypage-main__container__icon__content__name
+              コダイラ
+            .mypage-main__container__icon__content__text
+              評価　０出品数　０
+      .mypage-main__container__tabs
+        .mypage-main__container__tabs__tab
+          .mypage-main__container__tabs__tab__info.active
+            お知らせ
+          .mypage-main__container__tabs__tab__todo
+            やることリスト
+        .mypage-main__container__tabs__contents
+          %ul.mypage-main__container__tabs__contents__box
+            %li
+              = link_to "#" do
+                .mypage-main__container__tabs__contents__box__list
+                  = image_tag("logo_red.svg", size: "48x48")
+                  .mypage-main__container__tabs__contents__box__list__text
+                    %p
+                      事務局から個別メッセージ「《3日間限定！！ポイント倍増》招待コード「あけおめ」」を入力してメルペイ登録すると合計P2,000もらえる」
+                    %time
+                      = icon('far', 'clock')
+                      %span 1日前
+                  = icon('fas', 'chevron-right')
+            %li.go-list
+              .go-list__btn
+                = link_to "#" do
+                  一覧を見る
+      .mypage-main__container__box
+        .mypage-main__container__box__head
+          購入した商品
+        .mypage-main__container__box__tabs
+          .mypage-main__container__box__tabs__tab
+            .mypage-main__container__box__tabs__tab__trading
+              取引中
+            .mypage-main__container__box__tabs__tab__past
+              過去の取引
+        .mypage-main__container__box__content
+  = render 'shared/footer'

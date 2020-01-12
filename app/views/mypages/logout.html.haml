@@ -1,0 +1,9 @@
+.mypage-wrapper
+  = render 'shared/header'
+  .mypage-main
+    = render 'side-bar'
+    .mypage-main__container
+      .mypage-main__container__logout-box
+        .mypage-main__container__logout-box__btn
+          = link_to destroy_user_session_path, method: :delete do
+            ログアウト

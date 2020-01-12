@@ -38,11 +38,10 @@
             = link_to mypages_path, class: 'bottom-content__list__mypage__part' do
               = image_tag("",class:"bottom-content__list__mypage__part__img")
               マイページ
-              = link_to "ログアウト", destroy_user_session_path, method: :delete
       - else
         %ul.bottom-content__list
           %li.bottom-content__list__new-registration
-            = link_to "新規登録" 
+            = link_to "新規登録" , "#", class: 'btn'
           %li.bottom-content__list__login
-            = link_to "ログイン"
+            = link_to "ログイン", new_user_session_path, class: 'btn'
             

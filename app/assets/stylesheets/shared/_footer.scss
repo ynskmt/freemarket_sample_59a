@@ -1,0 +1,85 @@
+.aside {
+  height: 260px;
+  width: 100%;
+  background-size: cover;
+  background-image: url(sky-sun.jpg);
+  display: flex;
+  justify-content: center;
+  color: white;
+  &__text {
+    padding: 30px;
+    color: black;
+    &--1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    &--2 {
+      padding-top: 10px;
+      font-size: 35px;
+    }
+    &__logo {
+      padding: 24px;
+      margin-right: 20px;
+    }
+  }
+}
+
+.toppage-footer {
+  background-color: black;
+  padding: 10px 20px 10px 70px;
+  color: #fff;
+  &__top {
+    width: 80%;
+    margin: 0px auto;
+    display: flex;
+    padding-top: 20px;
+    &__list {
+      font-size: 16px;
+      margin: 0 20px;
+      text-align: left;
+      ul {
+        opacity: 0.7;
+        font-size: 12px;
+        li {
+          margin-top: 12px;
+        }
+      }
+      &__image {
+        display: flex;
+        li {
+          padding: 20px 20px 0 0;
+          font-size: 35px;
+          list-style: none;
+        }
+      }
+      &__box {
+        display: flex;
+        &__left {
+          width: 50%;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+  &__bottom {
+    display: flex;
+    padding: 10px 0;
+    width: 1020px;
+    margin: 30px auto 0;
+    &__link {
+      display: flex;
+      &__text {
+        padding: 8px 0 0 10px;
+        color: #fff;
+        font-size: 20px;
+      }
+    }
+    &__logo {
+      line-height: 33px;
+      font-size: 12px;
+      text-align: center;
+      padding: 10px 0 0 15px;
+      width: 68%;
+    }
+  }
+}

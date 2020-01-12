@@ -4,9 +4,9 @@
     .toppage-main__image
       %ul.slider
         %li.slider__first
-          = image_tag("clothesstore.jpg", width: '1440px', height: '450px')
+          = image_tag("clothes.jpg", width: '1440px', height: '450px')
         %li.slider__second
-          = image_tag("bookstore.jpg", width: '1440px',height: '450px')
+          = image_tag("book.jpg", width: '1440px',height: '450px')
       .slick
         .slick-next
           = icon('fas', 'chevron-right')
@@ -38,3 +38,4 @@
               .toppage-main__container__item-box__contents__images__box__image
               .toppage-main__container__item-box__contents__images__box__price
               .toppage-main__container__item-box__contents__images__box__text
+  = render "shared/footer"

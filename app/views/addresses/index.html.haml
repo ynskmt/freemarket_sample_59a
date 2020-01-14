@@ -52,4 +52,5 @@
             = f.text_field :phone_num, placeholder: '例)09012345678', class: 'input-default'
           .signup-main__container__content
             = f.submit '次へ進む', class: "input-default btn-next"
+            = link_to "仮ボタン 次のページ", cards_path
   = render 'shared/footer-simple'

@@ -66,12 +66,12 @@
     &__name-box {
       display: flex;
     }
-    &__birthday-box {
+    &__date-box {
       display: flex;
       &__select-wrap {
         display: flex;
         margin: 8px 0 0;
-        #birth_year, #birth_month, #birth_day {
+        #birth_year, #birth_month, #birth_day, #exp_month, #exp_year {
           width: 76px;
           padding: 0 10px;
           position: relative;

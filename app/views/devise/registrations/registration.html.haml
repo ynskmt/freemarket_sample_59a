@@ -48,14 +48,14 @@
             = f.label '生年月日'
             %span.signup-main__container__form-require 必須
             %br
-            .signup-main__container__birthday-box
-              .signup-main__container__birthday-box__select-wrap
+            .signup-main__container__date-box
+              .signup-main__container__date-box__select-wrap
                 = f.select :birth_year, [*1900..2019].reverse, prompt: "--"
                 %span 年
-              .signup-main__container__birthday-box__select-wrap
+              .signup-main__container__date-box__select-wrap
                 = f.select :birth_month, [*1..12], prompt: "--"
                 %span 月
-              .signup-main__container__birthday-box__select-wrap
+              .signup-main__container__date-box__select-wrap
                 = f.select :birth_day, [*1..31], prompt: "--"
                 %span 日
           .signup-main__container__text

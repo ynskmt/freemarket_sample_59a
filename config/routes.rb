@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index]
+  resources :users, only: [:index] do
+    collection do
+      get 'done'
+    end
+  end
 
   resources :addresses, only: [:index]
 

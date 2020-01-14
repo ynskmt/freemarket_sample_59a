@@ -5,16 +5,19 @@
       .signups-main__box__top
         新規会員登録
       .signups-main__box__bottom
-        .signups-main__box__bottom__mail
+        .signups-main__box__bottom__btn
           = link_to "#" do
-            = icon("far", "envelope", class: "icon")
-            メールアドレスで登録する
-        .signups-main__box__bottom__facebook
+            .signups-main__box__bottom__btn__mail
+              = icon("far", "envelope", class: "icon")
+              メールアドレスで登録する
+        .signups-main__box__bottom__btn
           = link_to "#" do
-            = icon("fab", "facebook-square", class: "icon")
-            Facebookで登録する
-        .signups-main__box__bottom__google
+            .signups-main__box__bottom__btn__facebook
+              = icon("fab", "facebook-square", class: "icon")
+              Facebookで登録する
+        .signups-main__box__bottom__btn
           = link_to "#" do
-            = image_tag("", class: 'icon')
-            Googleで登録する
+            .signups-main__box__bottom__btn__google
+              = icon("fab", "google", class: "icon")
+              Googleで登録する
   = render 'shared/footer-simple'

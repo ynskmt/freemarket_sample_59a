@@ -20,7 +20,6 @@
     }
     &__form-group {
       margin-top: 32px;
-      font-size: 14px;
       &:first-child {
         margin-top: 0;
       }
@@ -51,16 +50,18 @@
       color: #fff;
       font-size: 12px;
     }
+    &__form-optional {
+      background: #888;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+    }
     &__head {
       font-size: 16px;
       font-weight: 600;
       margin-bottom: 8px;
-    }
-    &__check-box {
-      display: flex;
-      input {
-        width: 1;
-      }
     }
     &__name-box {
       display: flex;
@@ -74,13 +75,11 @@
           width: 76px;
           padding: 0 10px;
           position: relative;
-          z-index: 2;
           height: 48px;
           border-radius: 4px;
           border: 1px solid #ccc;
           background: 0;
           font-size: 16px;
-          line-height: 1.5;
           cursor: pointer;
         }
         span {
@@ -152,7 +151,7 @@
       }
     }
   }
-  &__done {//done.html.hamlのsacc
+  &__done {//done.html.hamlのscss
     margin-bottom: 60px;
     .complete-box {
       padding: 40px 40px 64px;

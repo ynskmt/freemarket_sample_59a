@@ -1,0 +1,24 @@
+.signup-wrapper
+  = render 'devise/shared/header-phone'
+  .signup-main
+    .signup-main__container
+      .signup-main__container__top
+        電話番号認証
+      = form_with model: @user, url: "#", method: 'post', local: true, class: "signup-form" do |f|
+        .signup-main__container__box
+          .signup-main__container__form-group
+            = f.label '携帯電話の番号'
+            = f.text_field :phone_num, autofocus: true, placeholder: '携帯電話の番号を入力', class: 'input-default'
+          %p.signup-main__container__text
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証します。
+          .signup-main__container__content
+            = f.submit '次へ進む', class: "input-default btn-next"
+          %p.signup-main__container__text
+            ※電話番号は本人確認や不正利用帽子のために利用します。他のユーザーに公開されることはありません。
+          .signup-main__container__content__form-group
+            .signup-main__container__content__form-group__text-right
+              = link_to "#" do
+                電話番号の確認が必要な理由
+                = icon 'fas', 'chevron-right'
+          = link_to "仮ボタン 次のページ", "#"
+  = render 'shared/footer-simple'

@@ -18,4 +18,8 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index]
+
+  resources :addresses, only: [:index]
+
+  resources :cards, only: [:index]
 end

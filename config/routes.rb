@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: "users/registrations",
   }
-  
+  devise_scope :user do
+    get 'signups/registration', to: 'users/registrations#registration'
+    get 'signups/sms_authentication', to: 'users/registrations#sms_authentication'
+  end
+
   root 'products#index'
   resources :products, only: [:index, :new]
 

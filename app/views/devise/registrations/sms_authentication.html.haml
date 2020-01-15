@@ -4,7 +4,7 @@
     .signup-main__container
       .signup-main__container__top
         電話番号認証
-      = form_with model: @user, url: "#", method: 'post', local: true, class: "signup-form" do |f|
+      = form_with model: @user, url: signups_sms_authentication_path, local: true, class: "signup-form" do |f|
         .signup-main__container__box
           .signup-main__container__form-group
             = f.label '携帯電話の番号'

@@ -1,0 +1,42 @@
+.signin-wrapper
+  = render 'shared/header-simple'
+  .signin-main
+    .signin-main__container
+      .signin-main__container__top
+        .signin-main__container__top__text
+          アカウントをお持ちでない方はこちら
+        .signin-main__container__top__btn
+          = link_to signups_registration_path do
+            .signin-main__container__top__btn__new
+              新規会員登録
+      .signin-main__container__middle
+        .signin-main__container__middle--facebook
+          = link_to "#" do
+            = icon("fab", "facebook-square", class: "icon")
+            Facebookでログイン
+        .signin-main__container__middle--google
+          = link_to "#" do
+            = icon("fab", "google", class: "icon")
+            Googleでログイン
+      .signin-main__container__bottom
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .signin-main__container__bottom__email
+            = f.email_field :email, placeholder: 'メールアドレス', class: 'input-email'
+          .signin-main__container__bottom__password
+            = f.password_field :password, placeholder: 'パスワード', class: 'input-password'
+          .signin-main__container__bottom__form-group
+            .signin-main__container__bottom__form-group__box
+              .signin-main__container__bottom__form-group__box__top
+                .signin-main__container__bottom__form-group__box__top--check
+                .signin-main__container__bottom__form-group__box__top--text
+                  私はロボットではありません
+                .signin-main__container__bottom__form-group__box__top--icon
+                  = image_tag("", class: "image")
+              .signin-main__container__bottom__form-group__box__bottom
+                プライバシーポリシー-利用規約
+            .signin-main__container__bottom__form-group__login
+              = f.submit 'ログイン', class: 'submit'
+            .signin-main__container__bottom__form-group__forget
+              = link_to "#" do
+                パスワードをお忘れの方
+  = render 'shared/footer-simple'

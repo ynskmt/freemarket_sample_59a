@@ -1,8 +1,11 @@
 @import "./reset";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
-
 @import "mixin/mixins";
+
+@import "devise/registrations/registration";
+@import "devise/sessions/new";
+@import "devise/shared/header-registration";
 
 @import "mypage/side-bar";
 @import "mypage/index";
@@ -16,6 +19,8 @@
 @import "shared/footer";
 @import "shared/header-simple";
 @import "shared/header";
+
+@import "user/index";
 
 @import "slick-theme";
 @import "slick";

@@ -4,7 +4,7 @@
     .signup-main__container
       .signup-main__container__top
         会員情報入力
-      = form_with model: @user, url: "#", method: 'get', local: true, class: "signup-form" do |f|
+      = form_with model: @user, url: signups_registration_path, local: true, class: "signup-form" do |f|
         .signup-main__container__box
           .signup-main__container__form-group
             = f.label 'ニックネーム'

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get 'signups/registration', to: 'users/registrations#registration'
+    post 'signups/registration', to: 'users/registrations#create'
     get 'signups/sms_authentication', to: 'users/registrations#sms_authentication'
+    post 'signups/sms_authentication', to: 'users/registrations#sms_authentication_create'
   end
 
   root 'products#index'

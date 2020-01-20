@@ -19,6 +19,13 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :mypages, only: [:index] do
+    collection do
+      get 'profile'
+    end
+  end
+
+
   resources :users, only: [:index] do
     collection do
       get 'done'

@@ -1,0 +1,125 @@
+.mypage-main__profile {
+  background-color: #fff;
+  width: 700px;
+  height: 100%;
+  // padding-bottom: 20px;
+  
+  &__text {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;  
+    padding: 10px;
+  }
+
+  &__box {
+    &__top {
+      padding: 72px 16px 24px;
+      background-image: url(meadow.jpg);
+      height: 200px;
+      width: 100%;
+      &__human {
+        margin: 0 auto;
+        width: 300px;
+        display: flex;
+        &__image {
+          font-size: 50px;
+          text-align: center;
+        }
+        &__name {
+          input {
+            margin: 20px 0 0 30px;
+            height: 40px;
+            width: 200px;
+            padding: 2px 5px;
+          }
+        }
+      }
+    }
+    &__comment {
+      padding: 40px 16px;
+      &__text {
+        margin-top: 10px;
+        textarea {
+          height: 100px;
+          width: 100%;
+        }
+      }
+      &__btn {
+        margin-top: 10px;
+        .submit-btn {
+          margin: 0;
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          cursor: pointer;
+          text-align: center;
+        }
+      }
+
+    }
+  }
+}
+
+//     &__content {
+//       margin: 10px auto;
+//       font-size: 15px;
+//       font-weight: normal; 
+//       padding: 10px;
+//       textarea {
+//         height: 100px;
+//         width: 100%;
+//       }
+//     }
+  
+//     &__btn {
+//       .submit-btn {
+//         margin: 0;
+//         background: #ea352d;
+//         border: 1px solid #ea352d;
+//         color: #fff;
+//         display: block;
+//         width: 100%;
+//         line-height: 48px;
+//         font-size: 14px;
+//         cursor: pointer;
+//         text-align: center;
+//       }
+//     }
+
+//   &__content {
+//     margin: 10px auto;
+//     font-size: 15px;
+//     font-weight: normal; 
+//     padding: 10px;
+//     textarea {
+//       height: 100px;
+//       width: 100%;
+//     }
+//   }
+
+//   &__btn {
+//     .submit-btn {
+//       margin: 0;
+//       background: #ea352d;
+//       border: 1px solid #ea352d;
+//       color: #fff;
+//       display: block;
+//       width: 100%;
+//       line-height: 48px;
+//       font-size: 14px;
+//       cursor: pointer;
+//       text-align: center;
+//     }
+//   }
+// }
+
+
+
+
+// // background-image: url(meadow.jpg);
+
+

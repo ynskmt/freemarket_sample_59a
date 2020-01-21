@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function() {
   function appendChild(insertHTML) {
     let childSelectHtml = '';
     childSelectHtml = `<div id='child-box'>
-                        <select class='form' name='item[category_id]' id='child_category'>
+                        <select class='form' name='product[category_id]' id='child_category'>
                           <option value='---' data-category='---' class='form'>---</option>
                             ${insertHTML}
                         </select>
@@ -16,7 +16,7 @@ $(document).on('turbolinks:load', function() {
   function appendGrandchild(insertHTML) {
     let grandchildSelectHtml = '';
     grandchildSelectHtml = `<div id='grandchild-box'>
-                              <select class='form' name='item[category_id]' id='grandchild_category'>
+                              <select class='form' name='product[category_id]' id='grandchild_category'>
                                 <option value='---' data-category='---'>---</option>
                                   ${insertHTML}
                               </select>

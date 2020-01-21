@@ -33,6 +33,13 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+    @grandchild = Category.find(@product[:category_id])
+    @child = @grandchild.parent
+    @parent = @child.parent
+  end
+
   private
   def product_params
     params.require(:product).permit(

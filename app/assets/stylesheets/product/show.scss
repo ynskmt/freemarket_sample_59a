@@ -1,0 +1,224 @@
+.item-wrapper {
+  background-color: #f5f5f5;
+}
+
+.item-main {
+  font-size: 14px;
+  &__container {
+    padding: 24px 40px 40px;
+    background: #fff;
+    margin: 40px auto 0;
+    width: 700px;
+    &__item-name {
+      font-size: 24px;
+      text-align: center;
+      line-height: 1.4;
+    }
+    &__content {
+      display: flex;
+      margin: 16px 0 0;
+      &__photo {
+        height: 300px;
+        width: 300px;
+        img {
+          height: 300px;
+          width: 300px;
+        }
+      }
+      &__detail-table {
+        max-width: 300px;
+        height: 420px;
+        margin: 0 auto;
+        border: 1px solid #f5f5f5;
+        width: 100%;
+        th {
+          width: 39%;
+          text-align: left;
+          font-weight: 400;
+          background: #fafafa;
+          padding: 8px;
+          border: 1px solid #f5f5f5;
+        }
+        td {
+          width: 61%;
+          background: #fff;
+          padding: 8px;
+          border-collapse: collapse;
+          border: 1px solid #f5f5f5;
+          .category-box {
+            &__main {
+              color: #0099e8;
+              a {
+                color: #0099e8;
+                &:hover {
+                  opacity: 0.6;
+                }
+              }
+            }
+          }
+        }
+        .raiting {
+          display: inline-block;
+          margin: 8px 0 0 16px;
+          &:first-child {
+            margin: 0;
+          }
+          .fa-laugh {
+            color: #ef5185;
+          }
+          .fa-meh {
+            color: #fba933;
+          }
+          .fa-frown {
+            color: #6ab5d8;
+          }
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    &__price-box {
+      margin: 24px 0 0;
+      text-align: center;
+      &__price {
+        margin: 0 16px 0 0;
+        font-size: 50px;
+        font-weight: 600;
+        display: inline-block;
+      }
+      &__tax {
+        display: inline-block;
+        font-size: 10px;
+      }
+      &__shipping-fee {
+        display: inline-block;
+        font-size: 16px;
+      }
+    }
+    &__buy-btn {
+      font-size: 24px;
+      line-height: 60px;
+      margin-top: 16px;
+      background: #ea352d;
+      text-align: center;
+      font-weight: 600;
+      a {
+        color: #fff;
+      }
+    }
+    &__description {
+      padding: 32px 0 0;
+      font-size: 18px;
+      p {
+        white-space: pre-wrap;
+      }
+    }
+    &__bottom {
+      margin: 16px 0 0;
+      display: flex;
+      justify-content: space-between;
+      &__left {
+        color: #333;
+        &__good {
+          display: inline-block;
+          border-radius: 40px;
+          border: 1px solid #f5f5f5;
+          background: #f5f5f5;
+          padding: 8px 16px;
+        }
+        &__report {
+          display: inline-block;
+          border-radius: 40px;
+          border: 1px solid #f5f5f5;
+          background: #f5f5f5;
+          padding: 8px 16px;
+        }
+      }
+      &__right {
+        margin-top: 8px;
+        a {
+          color: #0099e8;
+        }
+      }
+      span {
+        margin: 1px 0 0 8px;
+      }
+    }
+  }
+  &__message {
+    width: 700px;
+    margin: 8px auto;
+    &__box {
+      padding: 24px;
+      background: #fff;
+      p {
+        padding: 8px;
+        font-size: 14px;
+        background: #fff6de;
+      }
+      .input-comment {
+        margin: 8px 0 0;
+        width: 100%;
+        max-width: 100%;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .btn-comment {
+        width: 100%;
+        height: 50px;
+        margin: 8px 0 0;
+        text-align: center;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
+      }
+    }
+  }
+  &__link {
+    margin: 24px auto 0;
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: #0099e8;
+    }
+  }
+  &__social-media {
+    margin: 24px auto;
+    padding: 32px 0 24px;
+    width: 700px;
+    &__box {
+      margin: 16px 0 0;
+      text-align: center;
+      li {
+        display: inline-block;
+        margin: 0 8px 8px 0;
+        .icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 4px;
+          line-height: 44px;
+        }
+        .facebook-icon {
+          background: #385185;
+        }
+        .twitter-icon {
+          background: #5d9dc9;
+        }
+        .pinterest-icon {
+          background: #aa262a;
+        }
+      }
+      .fab {
+        font-size: 26px;
+        margin-top: 8px;
+        color: #fff;
+      }
+    }
+  }
+}

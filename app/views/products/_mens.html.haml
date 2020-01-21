@@ -1,0 +1,18 @@
+.toppage-main__container__item-box
+  .toppage-main__container__item-box__list
+    .toppage-main__container__item-box__list__name
+      メンズ
+    .toppage-main__container__item-box__list__more
+      もっと見る >
+  .toppage-main__container__item-box__contents
+    .toppage-main__container__item-box__contents__images
+      - @mens.each do |item|
+        .toppage-main__container__item-box__contents__images__box
+          = link_to item_path(item.id) do
+            .toppage-main__container__item-box__contents__images__box__image
+              = image_tag "#{item.images[0].image}"
+            .toppage-main__container__item-box__contents__images__box__price
+              = "¥#{item.price}"
+            .toppage-main__container__item-box__contents__images__box__text
+              %div
+                = item.item_name

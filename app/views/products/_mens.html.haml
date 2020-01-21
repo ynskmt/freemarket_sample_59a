@@ -8,7 +8,7 @@
     .toppage-main__container__item-box__contents__images
       - @mens.each do |product|
         .toppage-main__container__item-box__contents__images__box
-          = link_to "#" do
+          = link_to product_path(product.id) do
             .toppage-main__container__item-box__contents__images__box__image
               = image_tag "#{product.images[0].image}"
             .toppage-main__container__item-box__contents__images__box__price

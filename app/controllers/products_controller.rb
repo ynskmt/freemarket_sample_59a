@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @ladies = Item.where(category_id:1..199).order("created_at DESC").limit(10)
-    @mens = Item.where(category_id:200..345).order("created_at DESC").limit(10)
+    @ladies = Product.where(category_id:1..199).order("created_at DESC").limit(10)
+    @mens = Product.where(category_id:200..345).order("created_at DESC").limit(10)
   end
 
   def new

@@ -39,12 +39,13 @@
             .sell-main__container__sell-form__detail__head
               商品の詳細
             .sell-main__container__sell-form__detail__box
-              .sell-main__container__sell-form__detail__box__form-group
-                %label
-                  カテゴリー
-                  %span
-                    必須
-              = f.collection_select :category, @category, :name, :name, {prompt: '---'}, class: 'form'
+              .category
+                .sell-main__container__sell-form__detail__box__form-group
+                  %label
+                    カテゴリー
+                    %span
+                      必須
+                = f.collection_select :category_id, @category, :id, :name, {prompt: '---'}, class: 'form', id: "parent_category"
               .sell-main__container__sell-form__detail__box__form-group
                 %label
                   商品の状態

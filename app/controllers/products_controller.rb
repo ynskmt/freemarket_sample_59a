@@ -7,7 +7,6 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @condition = Condition.all
-    # @category = Category.all
     @category = []
     Category.where(ancestry: nil).each do |parent|
     @category << parent

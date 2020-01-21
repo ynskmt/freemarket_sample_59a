@@ -7,10 +7,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @condition = Condition.all
-    @category = []
-    Category.where(ancestry: nil).each do |parent|
-    @category << parent
-    end
+    @category = Category.where(ancestry: nil)
     @delivery_charge = DeliveryCharge.all
     @delivery_way = DeliveryWay.all
     @prefecture = Prefecture.all

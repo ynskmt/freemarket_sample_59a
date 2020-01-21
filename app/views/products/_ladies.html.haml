@@ -6,13 +6,13 @@
       もっと見る >
   .toppage-main__container__item-box__contents
     .toppage-main__container__item-box__contents__images
-      - @ladies.each do |item|
+      - @ladies.each do |product|
         .toppage-main__container__item-box__contents__images__box
           = link_to "#" do
             .toppage-main__container__item-box__contents__images__box__image
-              = image_tag "#{item.images[0].image}"
+              = image_tag "#{product.images[0].image}"
             .toppage-main__container__item-box__contents__images__box__price
-              = "¥#{item.price}"
+              = "¥#{product.price}"
             .toppage-main__container__item-box__contents__images__box__text
               %div
-                = item.product_name
+                = product.product_name

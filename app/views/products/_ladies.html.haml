@@ -1,0 +1,18 @@
+.toppage-main__container__item-box
+  .toppage-main__container__item-box__list
+    .toppage-main__container__item-box__list__name
+      レディース
+    .toppage-main__container__item-box__list__more
+      もっと見る >
+  .toppage-main__container__item-box__contents
+    .toppage-main__container__item-box__contents__images
+      - @ladies.each do |product|
+        .toppage-main__container__item-box__contents__images__box
+          = link_to "#" do
+            .toppage-main__container__item-box__contents__images__box__image
+              = image_tag "#{product.images[0].image}"
+            .toppage-main__container__item-box__contents__images__box__price
+              = "¥#{product.price}"
+            .toppage-main__container__item-box__contents__images__box__text
+              %div
+                = product.product_name

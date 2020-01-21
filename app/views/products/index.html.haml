@@ -27,16 +27,6 @@
           %li.toppage-main__category__menu__list
             おもちゃ・ホビー・グッズ
     .toppage-main__container
-      .toppage-main__container__item-box
-        .toppage-main__container__item-box__list
-          .toppage-main__container__item-box__list__name
-            レディース
-          .toppage-main__container__item-box__list__more
-            もっと見る >
-        .toppage-main__container__item-box__contents
-          .toppage-main__container__item-box__contents__images
-            .toppage-main__container__item-box__contents__images__box
-              .toppage-main__container__item-box__contents__images__box__image
-              .toppage-main__container__item-box__contents__images__box__price
-              .toppage-main__container__item-box__contents__images__box__text
+      = render "products/ladies"
+      = render "products/mens"
   = render "shared/footer"

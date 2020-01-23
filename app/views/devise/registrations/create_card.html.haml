@@ -1,0 +1,15 @@
+.signup-wrapper
+  = render 'users/header-done'
+  .signup-main
+    .signup-main__container.signup-main__done
+      .signup-main__container__top
+        会員登録完了
+      .complete-box
+        .complete-box__text
+          %p
+            ありがとうございます。
+            %br
+            会員登録が完了しました。
+          = link_to mypages_path, class: 'btn-start' do
+            メルカリをはじめる
+  = render 'shared/footer'

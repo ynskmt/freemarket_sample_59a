@@ -1,10 +1,10 @@
 .signup-wrapper
-  = render 'cards/header-card'
+  = render 'devise/shared/header-card'
   .signup-main
     .signup-main__container
       .signup-main__container__top
         支払い方法
-      = form_with model: @user, url: "#", method: 'get', class: "signup-form" do |f|
+      = form_with model: @card, url: cards_path, local: true, method: 'post', class: "signup-form" do |f|
         .signup-main__container__box
           .signup-main__container__form-group
             = f.label 'カード番号'
@@ -18,16 +18,16 @@
             %br
             .signup-main__container__date-box
               .signup-main__container__date-box__select-wrap
-                = f.select :exp_month, [*1..12].reverse, prompt: "--", class: 'form-signup__month__select'
+                = f.select :expiration_month, [*1..12].reverse, prompt: "--", class: 'form-signup__month__select'
                 %span 月
               .signup-main__container__date-box__select-wrap
-                = f.select :exp_year, [*2020..2030].reverse, prompt: "--", class: 'form-signup__month__select'
+                = f.select :expiration_year, [*2020..2030].reverse, prompt: "--", class: 'form-signup__month__select'
                 %span 年
           .signup-main__container__form-group
             = f.label 'セキュリティーコード'
             %span.signup-main__container__form-require 必須
             %br
-            = f.text_field :card_num, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default'
+            = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default'
           .signup-main__container__content__form-group
             .signup-main__container__content__form-group__text-right
               = link_to "#", class: "question" do

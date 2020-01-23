@@ -15,13 +15,25 @@ Rails.application.routes.draw do
   end
 
   root 'products#index'
-  resources :products, only: [:index, :new]
+  resources :products, only: [:index, :new, :create, :show] do
+    collection do
+      get "category_children", defaults: { format: 'json' }
+      get "category_grandchildren", defaults: { format: 'json' }
+    end
+  end
 
   resources :mypages, only: [:index] do
     collection do
       get 'logout'
     end
   end
+
+  resources :mypages, only: [:index] do
+    collection do
+      get 'profile'
+    end
+  end
+
 
   resources :users, only: [:index] do
     collection do

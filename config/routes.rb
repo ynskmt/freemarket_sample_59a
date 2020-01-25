@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users,controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
     registrations: "users/registrations",
   }
   devise_scope :user do
-    # get 'signups/registration', to: 'users/registrations#new'
-    # post 'signups/registration', to: 'users/registrations#create'
     get 'signups/sms_authentication', to: 'users/registrations#sms_authentication'
     post 'signups/sms_authentication', to: 'users/registrations#sms_authentication_create'
     get 'addresses', to: 'users/registrations#new_address'

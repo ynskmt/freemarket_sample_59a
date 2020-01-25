@@ -9,7 +9,7 @@
             .mypage-main__container__icon__content__image
               = icon('fas', 'user', class: "icon")
             .mypage-main__container__icon__content__name
-              コダイラ
+              = "#{current_user.nickname}でログイン中"
             .mypage-main__container__icon__content__text
               評価　０出品数　０
       .mypage-main__container__tabs

@@ -1,0 +1,15 @@
+.mypage-wrapper
+    = render 'shared/header'
+    .mypage-main
+        .maypage-tabs-container
+            %h2.status-tab-head
+                出品した商品
+            %ul.status-tabs
+                出品中
+                取引中
+                売却済み
+            .products-content
+                
+        = render 'side-bar'
+
+    = render 'shared/footer'

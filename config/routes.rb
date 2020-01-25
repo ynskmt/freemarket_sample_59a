@@ -35,7 +35,7 @@ Rails.application.routes.draw do
 
   resources :mypages, only: [:index] do
     collection do
-      get 'on-sale-products'
+      get 'on_sale_products'
     end
   end
 

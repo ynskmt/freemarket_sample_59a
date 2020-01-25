@@ -33,6 +33,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :mypages, only: [:index] do
+    collection do
+      get 'on-sale-products'
+    end
+  end
 
   resources :users, only: [:index] do
     collection do

@@ -50,13 +50,11 @@
 }
 
 .toppage-main__container {
-  padding: 42px 0px 100px;
+  padding: 42px 0px 50px;
   margin: 0 auto;
   width: 1020px;
-  margin: 0 auto;
   &__item-box {
-    margin-bottom: 16px;
-    margin: 0 auto;
+    margin-bottom: 30px;
     padding: 0px;
     height: 544px;
     &__list {
@@ -70,6 +68,58 @@
         font-size: 14px;
         padding: 5px 16px 5px 5px;
         color: rgb(0, 149, 238);
+      }
+    }
+    &__contents {
+      display: list-item;
+      text-decoration: none;
+      list-style: none;
+      &__images {
+        padding: 10px;
+        display: inline-block;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 20px 20px;
+        width: 100%;
+        &:first-child {
+          gap: 0;
+        }
+        &__box {
+          position: relative;
+          height: 252px;
+          width: 188px;
+          &__image {
+            height: 188px;
+            width: 188px;
+            img {
+              height: 188px;
+              width: 188px;
+            }
+          }
+          &__price {
+            font-size: 16px;
+            position: absolute;
+            top: 50%;
+            left: 1px;
+            align-items: center;
+            background: rgba(0,0,0,.4);
+            border-radius: 0 14px 14px 0;
+            color: #fff;
+            padding: 0 10px;
+          }
+          &__text {
+            color: #222;
+            font-size: 14px;
+            height: 50px;
+            line-height: 1.4em;
+            padding: 0 12px;
+            background-color: #fff;
+            border-top: solid 1px #eee;
+            div {
+              padding: 10px 0;
+            }
+          }
+        }
       }
     }
   }

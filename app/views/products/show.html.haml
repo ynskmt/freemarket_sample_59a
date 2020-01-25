@@ -1,0 +1,123 @@
+.item-wrapper
+  = render 'shared/header'
+  .item-main
+    .item-main__container
+      .item-main__container__item-name
+        = @product.product_name
+      .item-main__container__content
+        .item-main__container__content__photo
+          = image_tag "#{@product.images[0].image}"
+        %table.item-main__container__content__detail-table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to "#" do
+                  = @product.user.nickname
+                %div
+                  .raiting
+                    = icon('fas', 'laugh')
+                    %span 10
+                  .raiting
+                    = icon('fas', 'meh')
+                    %span 20
+                  .raiting
+                    = icon('fas', 'frown')
+                    %span 20
+            %tr
+              %th カテゴリー
+              %td
+                .category-box
+                  .category-box__main
+                    = link_to "#" do
+                      = @parent.name
+                  .category-box__main
+                    = link_to "#" do
+                      = icon('fas', 'chevron-right')
+                      = @child.name
+                  .category-box__main
+                    = link_to "#" do
+                      = icon('fas', 'chevron-right')
+                      = @grandchild.name
+            %tr
+              %th 商品のサイズ
+              %td 
+            %tr
+              %th 商品の状態
+              %td 
+                = @product.condition
+            %tr
+              %th 配送料の負担
+              %td
+                = @product.delivery_charge
+            %tr
+              %th 配送の方法
+              %td
+                = @product.delivery_way
+            %tr
+              %th 配送元地域
+              %td
+                = @product.delivery_area
+            %tr
+              %th 発送日の目安
+              %td
+                = @product.delivery_days
+      .item-main__container__price-box
+        .item-main__container__price-box__price
+          = "¥#{@product.price}"
+        .item-main__container__price-box__tax
+          (税込)
+        .item-main__container__price-box__shipping-fee
+          送料込み
+      .item-main__container__buy-btn
+        = link_to "#" do
+          購入画面に進む
+      .item-main__container__description
+        %p
+          おもしろい
+          %br
+          楽しい
+      .item-main__container__bottom
+        .item-main__container__bottom__left
+          .item-main__container__bottom__left__good
+            = icon('far', 'heart')
+            %span いいね！0
+          .item-main__container__bottom__left__report
+            = icon('far', 'flag')
+            %span 不適切な商品の報告
+        .item-main__container__bottom__right
+          = link_to "#" do
+            = icon('fas', 'lock')
+            %span あんしん・あんぜんへの取り組み
+    .item-main__message
+      .item-main__message__box
+        = form_with do |f|
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.text_area :comment, class: "input-comment"
+          = f.submit "コメントする", class: "btn-comment"
+    .item-main__link
+      .item-main__link__prev
+        = link_to "#" do
+          = icon('fas', 'chevron-left')
+          レディース
+      .item-main__link__next
+        = link_to "#" do
+          メンズ
+          = icon('fas', 'chevron-right')
+    .item-main__social-media
+      .item-main__social-media__center
+      %ul.item-main__social-media__box
+        %li 
+          .facebook-icon.icon
+            = link_to "#" do
+              = icon('fab', 'facebook-square')
+        %li
+          .twitter-icon.icon
+            = link_to "#" do
+              = icon('fab', 'twitter')
+        %li 
+          .pinterest-icon.icon
+            = link_to "#" do
+              = icon('fab', 'pinterest-square')
+    .item-main__user-profile
+  = render 'shared/footer'

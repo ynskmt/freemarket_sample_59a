@@ -61,5 +61,13 @@
                 建物名
               %span 任意
               = f.text_field :building_nam, placeholder: "例）柳ビル103"
+            .mypage-main__container__identification__main__btn
+              = f.submit '登録する'
+            .mypage-main__container__identification__main__bottom
+              = link_to "#" do
+                本人情報の登録について
+                .fa.fa-chevron-right
+
+
 
   = render 'shared/footer'

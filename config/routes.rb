@@ -25,14 +25,12 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
     end
-  end
 
-  resources :mypages, only: [:index] do
-    collection do
+    member do
       get 'profile'
+      post 'update_profile'
     end
   end
-
 
   resources :users, only: [:index] do
     collection do

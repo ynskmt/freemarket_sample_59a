@@ -1,0 +1,49 @@
+.mypage-wrapper
+  = render 'shared/header'
+  .mypage-main
+    = render 'side-bar'
+    .mypage-main__container
+      .mypage-main__container__identification
+        .mypage-main__container__identification__top
+          本人情報
+        = form_with model: @user, url: update_profile_mypage_path, local: true do |f|
+          .mypage-main__container__identification__main
+            .mypage-main__container__identification__main__head
+              .mypage-main__container__identification__main__head__text-exp
+                お客さまの本人情報をご登録ください。
+                %br
+                登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+              .mypage-main__container__identification__main__head__text-right
+                = link_to "#" do
+                  本人確認書類のアップロードについて
+                  .fa.fa-chevron-right
+            .mypage-main__container__identification__main__form-group
+              %label
+                お名前
+              %p
+                = current_user.last_name
+                = current_user.first_name
+            .mypage-main__container__identification__main__form-group
+              %label
+                お名前カナ
+              %p
+                = current_user.last_name_kana
+                = current_user.first_name_kana
+            .mypage-main__container__identification__main__form-group
+              %label
+                生年月日
+              %p
+                = "#{current_user.birth_year}/"
+                = "#{current_user.birth_month}/"
+                = current_user.birth_day
+            .mypage-main__container__identification__main__form-group
+              %label
+                郵便番号
+              %span
+                任意
+              = f.text_field :zip_code
+            
+
+
+
+  = render 'shared/footer'

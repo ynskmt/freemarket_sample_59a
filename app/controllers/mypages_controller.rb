@@ -17,11 +17,27 @@ class MypagesController < ApplicationController
     end
   end
 
+  def identification
+    @address = Address.new
+  end
+
+  def update_identification
+    @address = Address.find(params[:id])
+    if @address.update(address_params)
+      redirect_to identification_mypage_path
+    else
+      redirect_to identification_mypage_path
+    end
+  end
+
 
   private
   def user_params
     params.require(:user).permit(:nickname)
   end
 
+  def address_params
+    params.require(:address).permit(:zip_code, :prefecture, :city, :block_num, :building_name).merge(user_id: current_user.id)
+  end
 
 end

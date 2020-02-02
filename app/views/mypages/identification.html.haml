@@ -6,7 +6,7 @@
       .mypage-main__container__identification
         .mypage-main__container__identification__top
           本人情報
-        = form_with model: @user, url: update_profile_mypage_path, local: true do |f|
+        = form_with model: @address, url: update_identification_mypage_path, local: true do |f|
           .mypage-main__container__identification__main
             .mypage-main__container__identification__main__head
               .mypage-main__container__identification__main__head__text-exp
@@ -60,7 +60,7 @@
               %label
                 建物名
               %span 任意
-              = f.text_field :building_nam, placeholder: "例）柳ビル103"
+              = f.text_field :building_name, placeholder: "例）柳ビル103"
             .mypage-main__container__identification__main__btn
               = f.submit '登録する'
             .mypage-main__container__identification__main__bottom

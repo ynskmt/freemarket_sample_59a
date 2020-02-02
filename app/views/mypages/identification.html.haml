@@ -39,11 +39,27 @@
             .mypage-main__container__identification__main__form-group
               %label
                 郵便番号
-              %span
-                任意
-              = f.text_field :zip_code
-            
-
-
+              %span 任意
+              = f.text_field :zip_code, placeholder: "例）1234567"
+            .mypage-main__container__identification__main__form-group
+              %label
+                都道府県
+              %span 任意
+              = f.collection_select :prefecture, Prefecture.all, :name, :name, {prompt: "-------"}
+            .mypage-main__container__identification__main__form-group
+              %label
+                市区町村
+              %span 任意
+              = f.text_field :city, placeholder: "例）横浜市緑区"
+            .mypage-main__container__identification__main__form-group
+              %label
+                番地
+              %span 任意
+              = f.text_field :block_num, placeholder: "例）青山1-1-1"
+            .mypage-main__container__identification__main__form-group
+              %label
+                建物名
+              %span 任意
+              = f.text_field :building_nam, placeholder: "例）柳ビル103"
 
   = render 'shared/footer'

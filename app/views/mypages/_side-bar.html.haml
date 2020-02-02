@@ -72,7 +72,7 @@
       設定
     %ul.side-bar__nav__list
       %li
-        = link_to profile_mypages_path, class: 'link' do
+        = link_to profile_mypage_path(current_user.id), class: 'link' do
           プロフィール
           = icon('fas', 'chevron-right')
       %li

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     member do
       get 'profile'
       post 'update_profile'
+      get 'identification'
     end
   end
 

@@ -88,7 +88,7 @@
           メール/パスワード
           = icon('fas', 'chevron-right')
       %li
-        = link_to '#', class: 'link' do
+        = link_to identification_mypage_path(current_user.id), class: 'link' do
           本人情報
           = icon('fas', 'chevron-right')
       %li

@@ -4,13 +4,13 @@
     .signup-main__container
       .signup-main__container__top
         支払い方法
-      = form_with model: @card, url: cards_path, local: true, method: 'post', class: "signup-form" do |f|
+      = form_with model: @card, url: cards_path, local: true, method: 'post', class: "signup-form", id: 'charge-form' do |f|
         .signup-main__container__box
           .signup-main__container__form-group
             = f.label 'カード番号'
             %span.signup-main__container__form-require 必須
             %br
-            = f.text_field :card_num, autofocus: true, placeholder: '例)半角数字のみ', class: 'input-default'
+            = f.text_field :card_num, autofocus: true, placeholder: '例)半角数字のみ', class: 'input-default',type: "text", id: "card_num", maxlength: "16"
             %ul.signup-main__container__card-box
           .signup-main__container__form-group
             = f.label '有効期限'
@@ -18,16 +18,41 @@
             %br
             .signup-main__container__date-box
               .signup-main__container__date-box__select-wrap
-                = f.select :expiration_month, [*1..12].reverse, prompt: "--", class: 'form-signup__month__select'
-                %span 月
+                %select.card-valid#expiration_month{name: "expiration_month", type: "text"}
+                  %option{value: ""} --
+                  %option{value: "1"}01
+                  %option{value: "2"}02
+                  %option{value: "3"}03
+                  %option{value: "4"}04
+                  %option{value: "5"}05
+                  %option{value: "6"}06
+                  %option{value: "7"}07
+                  %option{value: "8"}08
+                  %option{value: "9"}09
+                  %option{value: "10"}10
+                  %option{value: "11"}11
+                  %option{value: "12"}12
+                %span 月/
               .signup-main__container__date-box__select-wrap
-                = f.select :expiration_year, [*2020..2030].reverse, prompt: "--", class: 'form-signup__month__select'
-                %span 年
+                %select.card-valid#expiration_year{name: "expiration_year", type: "text"}
+                  %option{value: ""} --
+                  %option{value: "2019"}19
+                  %option{value: "2020"}20
+                  %option{value: "2021"}21
+                  %option{value: "2022"}22
+                  %option{value: "2023"}23
+                  %option{value: "2024"}24
+                  %option{value: "2025"}25
+                  %option{value: "2026"}26
+                  %option{value: "2027"}27
+                  %option{value: "2028"}28
+                  %option{value: "2029"}29
+              %span 年
           .signup-main__container__form-group
             = f.label 'セキュリティーコード'
             %span.signup-main__container__form-require 必須
             %br
-            = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default'
+            = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', id: "security_code"
           .signup-main__container__content__form-group
             .signup-main__container__content__form-group__text-right
               = link_to "#", class: "question" do
@@ -35,6 +60,6 @@
               = link_to "#" do
                 カード裏面の番号とは?
           .signup-main__container__content
-            = f.submit '次へ進む', class: "input-default btn-next"
+            = f.submit '次へ進む', class: "input-default btn-next", id: "token_submit"
             = link_to "仮ボタン 次のページ", done_users_path
   = render 'shared/footer-simple'

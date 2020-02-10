@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  require 'payjp'
   def new
     @user = User.new
   end
@@ -51,18 +51,43 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_card
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(session["devise.regist_data1"]["address"])
-    @card = Card.new(card_params)
-    unless @card.valid?
-      flash.now[:alert] = @card.errors.full_messages
-      render :new_card and return
-    end
+    # @card = Card.new(card_params)
     @user.build_address(@address.attributes)
-    @user.build_card(@card.attributes)
+    # @user.build_card(@card.attributes)
     @user.save
     sign_in(:user, @user)
+    # if @user.save
+    #   session[:id] = @user.id
+    #   sign_in User.find(session[:id]) unless user_signed_in?
+    #   #後にcurrent_user.idが必要なので、signinさせてしまう
+    # else
+    #   render '/users'
+    # end
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_SECRET_KEY]
+    if params['payjp_token'].blank?
+      render '/cards'
+    else
+      customer = Payjp::Customer.create(
+        description: 'test',
+        email: current_user.email,
+        card: params['payjp_token'],
+        metadata: {user_id: current_user.id}
+      )
+      @card = Card.new(
+        user_id: current_user.id,
+        customer_id: customer.id,
+        card_id: customer.default_card,
+        expiration_month: customer.cards.data[0].exp_month,
+        expiration_year: customer.cards.data[0].exp_year
+      )
+      unless @card.valid?
+        flash.now[:alert] = @card.errors.full_messages
+        render :new_card and return
+      end
+      @card.save
+    end
   end
-
-
+  
   # GET /resource/sign_up
   # def new
   #   super
@@ -109,7 +134,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def card_params
-    params.require(:card).permit(:card_num, :expiration_month, :expiration_year, :security_code)
+    params.require(:card).permit(:card_num, :expiration_month, :expiration_year, :customer_id, :card_id)
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

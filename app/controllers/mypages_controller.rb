@@ -30,6 +30,10 @@ class MypagesController < ApplicationController
     end
   end
 
+  def listing
+    @products = current_user.products
+  end
+
 
   private
   def user_params

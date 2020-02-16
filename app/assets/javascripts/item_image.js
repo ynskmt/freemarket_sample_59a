@@ -19,6 +19,27 @@ $(document).on("turbolinks:load", function() {
     return previewHtml;
   }
 
+  function appendPreview1(index, url, id) {
+    var previewHtml = $(`<div class="img_view" data-image="${index}" data-id="${id}"><img src="${url}">
+                <div class="btn_wrapper">
+                <div class="btn delete">削除
+                </div>
+                </div>
+                </div>`);
+    $("#preview").append(previewHtml);
+    return previewHtml;
+  }
+
+  function appendPreview2(index, url, id) {
+    var previewHtml = $(`<div class="img_view" data-image="${index}" data-id="${id}"><img src="${url}">
+                <div class="btn_wrapper">
+                <div class="btn delete">削除</div>
+                </div>
+                </div>`);
+    $("#preview2").append(previewHtml);
+    return previewHtml;
+  }
+
   $(document).on("change", 'input[type= "file"].upload-image', function() {
     let file = $(this).prop("files")[0];
     let reader = new FileReader();
@@ -99,8 +120,8 @@ $(document).on("turbolinks:load", function() {
         inputs.splice(inputs_index, 1);
       }
     });
-    $.each(defaultInput, function(input) {
-      if (input == target_image.data("id")) {
+    $.each(defaultInput, function(input, index) {
+      if (index == target_image.data("id")) {
         target_image.remove();
         defaultInput.splice(
           $.inArray(target_image.data("id"), defaultInput),
@@ -175,4 +196,92 @@ $(document).on("turbolinks:load", function() {
       }
     }
   });
+
+  if(document.URL.match(/products/) && document.URL.match(/edit/)) {
+    $(document).ready( function() {
+      productId = $("#product-id").data("id");
+      if (productId != null) {
+        $.ajax({
+          url: "/products/get_image",
+          type: "GET",
+          data: { product_id: productId },
+          dataType: "json"
+        })
+          .done(function(ArrayImages) {
+            $.each(ArrayImages, function(index, image) {
+              var file = image.image.url;
+              if (index < 5) {
+                images.push(appendPreview1(i, file, image.id));
+              } else {
+                images.push(appendPreview2(i, file, image.id));
+              }
+              defaultInput.push(image.id);
+              i += 1;
+            });
+  
+            if (images.length >= 5) {
+              dropzone2.css({
+                display: "block"
+              });
+              dropzone.css({
+                display: "none"
+              });
+              dropzone2.css({
+                width: `calc(100% - (124px * ${images.length - 5}))`
+              });
+              
+            } else {
+              dropzone.css({
+                width: `calc(100% - (124px * ${images.length}))`
+              });
+            }
+            
+            if (images.length == 10) {
+              dropzone.css({
+                display: "none"
+              });
+              dropzone2.css({
+                display: "none"
+              });
+              input_area.css({
+                display: "none"
+              });
+              return;
+            }
+            $('input[type= "file"].upload-image:first').attr({
+              "data-image": i
+            });
+          })
+          .fail(function() {
+            alert("画像の取得に失敗しました");
+          });
+      }
+  
+      $("#edit-submit").click(function(e) {
+        e.preventDefault();
+        var formData = new FormData($("#item-dropzone").get(0));
+        if (defaultInput.length == 0) {
+        } else {
+          defaultInput.forEach(function(image) {
+            formData.append("images[image][]", image);
+          });
+        }
+        productId = $("#product-id").data("id");
+        $.ajax({
+          url: "/products/" + productId,
+          type: "PATCH",
+          data: formData,
+          contentType: false,
+          processData: false,
+          dataType: "text"
+        })
+          .done(function() {
+            window.location.href = "/products/" + productId + "/detail";
+          })
+          .fail(function() {
+            alert("更新に失敗しました");
+          });
+      });
+    });
+  }
 });

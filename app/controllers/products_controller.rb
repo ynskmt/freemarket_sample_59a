@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:detail, :show]
+  before_action :set_category, only: [:new, :edit]
 
   def index
     @ladies = Product.where(category_id:1..199).order("created_at DESC").limit(10)
@@ -8,12 +9,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @condition = Condition.all
-    @category = Category.where(ancestry: nil)
-    @delivery_charge = DeliveryCharge.all
-    @delivery_way = DeliveryWay.all
-    @prefecture = Prefecture.all
-    @delivery_days = DeliveryDays.all
     @product.images.new
   end
 
@@ -37,6 +32,36 @@ class ProductsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if params[:images][:image].nil?
+      redirect_to detail_product_path(@product.id)
+    elsif @product.update(product_params)
+      exist_ids = @product.images.pluck(:id)
+      params[:images][:image].each do |image|
+        if image.is_a?(String)
+          exist_ids.delete(image.to_i)
+        else
+          render :edit unless @product.images.create(image: image, product_id: @product.id)
+        end
+      end
+      exist_ids.each do |id|
+        delete_image = Image.find(id)
+        delete_image.delete
+      end
+    else
+      redirect_to detail_product_path(@product.id)
+    end
+  end
+
+  def get_image
+    @images = Product.find(params[:product_id]).images
   end
 
   def show
@@ -64,6 +89,15 @@ class ProductsController < ApplicationController
     @grandchild = Category.find(@product[:category_id])
     @child = @grandchild.parent
     @parent = @child.parent
+  end
+
+  def set_category
+    @condition = Condition.all
+    @category = Category.where(ancestry: nil)
+    @delivery_charge = DeliveryCharge.all
+    @delivery_way = DeliveryWay.all
+    @delivery_area = DeliveryArea.all
+    @delivery_days = DeliveryDays.all
   end
 
 end

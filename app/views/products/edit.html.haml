@@ -1,10 +1,12 @@
 .sell-wrapper
   = render 'shared/header-simple'
+
+  #product-id{data:{id:"#{@product.id}"}}
   .sell-main
     .sell-main__container
       .sell-main__container__top
         商品の情報を入力
-      = form_with model: @product, local: true do |f|
+      = form_with model: @product, local: true, method: 'patch', html: {class: "sell-form zone", id: "item-dropzone"} do |f|
         .sell-main__container__sell-form
           .sell-main__container__sell-form__upload-box
             .sell-main__container__sell-form__upload-box__head
@@ -13,8 +15,9 @@
                 必須
             .sell-main__container__sell-form__upload-box__bottom
               最大10枚までアップロードできます
+            
             .sell-main__container__sell-form__upload-box__dropbox
-              = f.fields_for :item do |i|
+              = f.fields_for :product do |i|
                 .dropzone-container
                   .box
                     #preview
@@ -53,7 +56,6 @@
                     カテゴリー
                     %span
                       必須
-                = f.collection_select :category_id, @category, :id, :name, {prompt: '---'}, class: 'form', id: "parent_category"
               .sell-main__container__sell-form__detail__box__form-group
                 %label
                   商品の状態
@@ -132,7 +134,7 @@
                   = link_to "加盟店規約"
                   に同意したことになります。
             .sell-main__container__sell-form__btn-box__exhibit-btn
-              = f.submit '出品する', class: "submit-btn"
+              = f.submit '変更する', class: "submit-btn", method: :patch, id:"edit-submit"
             .sell-main__container__sell-form__btn-box__back
               = link_to "#" do
                 もどる

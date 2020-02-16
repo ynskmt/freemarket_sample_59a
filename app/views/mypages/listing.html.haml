@@ -1,0 +1,21 @@
+.mypage-wrapper
+  = render 'shared/header'
+  .mypage-main
+    = render 'side-bar'
+    .mypage-main__container
+      .mypage-main__container__box
+        .mypage-main__container__box__head
+          出品した商品
+        .mypage-main__container__box__lists
+          = link_to "#", class: "mypage-main__container__box__lists__active" do
+            出品中
+          = link_to "#", class: "mypage-main__container__box__lists__inactive" do
+            取引中
+          = link_to "#", class: "mypage-main__container__box__lists__inactive" do
+            売却済み
+        .mypage-main__container__box__no-item
+          出品中の商品はありません
+        .mypage-main__container__box__items
+              .mypage-main__container__box__items__item__arrow
+                .fas.fa-angle-right
+  = render 'shared/footer'

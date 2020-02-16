@@ -42,5 +42,9 @@ Rails.application.routes.draw do
 
   resources :addresses, only: [:index]
 
-  resources :cards, only: [:index]
+  resources :cards, only: [:new, :create, :destroy] do
+    collection do
+      post 'pay'
+    end
+  end
 end

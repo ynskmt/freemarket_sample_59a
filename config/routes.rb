@@ -9,8 +9,6 @@ Rails.application.routes.draw do
     post 'signups/sms_authentication', to: 'users/registrations#sms_authentication_create'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
-    get 'cards', to: 'users/registrations#new_card'
-    post 'cards', to: 'users/registrations#create_card'
   end
 
   root 'products#index'
@@ -42,5 +40,9 @@ Rails.application.routes.draw do
 
   resources :addresses, only: [:index]
 
-  resources :cards, only: [:index]
+  resources :cards, only: [:new, :create, :destroy] do
+    collection do
+      post 'pay'
+    end
+  end
 end

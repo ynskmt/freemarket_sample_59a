@@ -45,38 +45,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
-    redirect_to root_path
-    # redirect_to new_card_path
+    redirect_to new_card_path
   end
 
-  # def create_address
-  #   @user = User.new(session["devise.regist_data"]["user"])
-  #   @address = Address.new(address_params)
-  #   unless @address.valid?
-  #     flash.now[:alert] = @address.errors.full_messages
-  #     render :new_address and return
-  #   end
-  #   @user.build_address(@address.attributes)
-  #   session["devise.regist_data1"] = {address: @address.attributes}
-  #   @card = @user.build_card
-  #   render :new_card
-  # end
-
-
-
-  # def create_card
-  #   @user = User.new(session["devise.regist_data"]["user"])
-  #   @address = Address.new(session["devise.regist_data1"]["address"])
-  #   @card = Card.new(card_params)
-  #   unless @card.valid?
-  #     flash.now[:alert] = @card.errors.full_messages
-  #     render :new_card and return
-  #   end
-  #   @user.build_address(@address.attributes)
-  #   @user.build_card(@card.attributes)
-  #   @user.save
-  #   sign_in(:user, @user)
-  # end
 
 
   # GET /resource/sign_up

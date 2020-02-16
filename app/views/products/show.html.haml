@@ -45,23 +45,23 @@
             %tr
               %th 商品の状態
               %td 
-                = @product.condition
+                = @product.condition.name
             %tr
               %th 配送料の負担
               %td
-                = @product.delivery_charge
+                = @product.delivery_charge.name
             %tr
               %th 配送の方法
               %td
-                = @product.delivery_way
+                = @product.delivery_way.name
             %tr
               %th 配送元地域
               %td
-                = @product.delivery_area
+                = @product.delivery_area.name
             %tr
               %th 発送日の目安
               %td
-                = @product.delivery_days
+                = @product.delivery_days.name
       .item-main__container__price-box
         .item-main__container__price-box__price
           = "¥#{@product.price}"

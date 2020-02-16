@@ -39,7 +39,26 @@ class ProductsController < ApplicationController
   end
 
   def update
-
+    @product = Product.find(params[:id])
+    if params[:images][:image].nil?
+      redirect_to detail_product_path(@product.id)
+    elsif @product.update(product_params)
+      exist_ids = @product.images.pluck(:id)
+      params[:images][:image].each do |image|
+        if image.is_a?(String)
+          exist_ids.delete(image.to_i)
+        else
+          render :edit unless @product.images.create(image: image, product_id: @product.id)
+        end
+      end
+      exist_ids.each do |id|
+        delete_image = Image.find(id)
+        delete_image.delete
+      end
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
   end
 
   def get_image

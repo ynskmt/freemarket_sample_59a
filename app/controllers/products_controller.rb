@@ -26,7 +26,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.save
+    if @product.valid? && params[:images].present?
+      @product.save
+      params[:images][:image].each do |image|
+        @product.images.create(image: image, product_id: @product.id)
+      end
       redirect_to root_path
     else
       render :new

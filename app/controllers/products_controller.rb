@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:detail, :show]
+  before_action :set_product, only: [:detail, :show, :destroy]
   before_action :set_category, only: [:new, :edit]
 
   def index
@@ -65,7 +65,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     if @product.user_id == current_user.id
       @product.destroy
       redirect_to listing_mypages_path

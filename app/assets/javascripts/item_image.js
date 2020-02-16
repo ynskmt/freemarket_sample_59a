@@ -197,14 +197,14 @@ $(document).on("turbolinks:load", function() {
     }
   });
 
-  if(document.URL.match(/item/) && document.URL.match(/edit/)) {
+  if(document.URL.match(/products/) && document.URL.match(/edit/)) {
     $(document).ready( function() {
-      itemId = $("#item-id").data("id");
+      productId = $("#product-id").data("id");
       if (itemId != null) {
         $.ajax({
-          url: "/items/get_image",
+          url: "/products/get_image",
           type: "GET",
-          data: { item_id: itemId },
+          data: { product_id: productId },
           dataType: "json"
         })
           .done(function(ArrayImages) {
@@ -266,13 +266,9 @@ $(document).on("turbolinks:load", function() {
             formData.append("images[image][]", image);
           });
         }
-        itemId = $("#item-id").data("id");
-  
-        for (let value of formData.entries()) {
-        }
-  
+        productId = $("#product-id").data("id");
         $.ajax({
-          url: "/items/" + itemId,
+          url: "/products/" + productId,
           type: "PATCH",
           data: formData,
           contentType: false,
@@ -280,7 +276,7 @@ $(document).on("turbolinks:load", function() {
           dataType: "text"
         })
           .done(function() {
-            window.location.href = "/items/" + itemId + "/detail";
+            window.location.href = "/products/" + productId + "/detail";
           })
           .fail(function() {
             alert("更新に失敗しました");

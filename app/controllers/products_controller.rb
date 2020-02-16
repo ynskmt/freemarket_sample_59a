@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :show_detail, only: :detail
+  before_action :set_product, only: [:detail, :show]
 
   def index
     @ladies = Product.where(category_id:1..199).order("created_at DESC").limit(10)
@@ -39,15 +39,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  def show
-    @product = Product.find(params[:id])
-    @grandchild = Category.find(@product[:category_id])
-    @child = @grandchild.parent
-    @parent = @child.parent
-  end
-
-  def detail
-  end
 
   private
   def product_params
@@ -65,7 +56,7 @@ class ProductsController < ApplicationController
       .merge(user_id: current_user.id)
   end
 
-  def show_detail
+  def set_product
     @product = Product.find(params[:id])
     @grandchild = Category.find(@product[:category_id])
     @child = @grandchild.parent

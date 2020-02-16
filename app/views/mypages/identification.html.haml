@@ -45,7 +45,7 @@
               %label
                 都道府県
               %span 任意
-              = f.collection_select :prefecture, Prefecture.all, :name, :name, {prompt: "-------"}
+              = f.collection_select :prefecture_id, Prefecture.all, :name, :name, {prompt: "-------"}
             .mypage-main__container__identification__main__form-group
               %label
                 市区町村

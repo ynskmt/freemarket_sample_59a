@@ -78,7 +78,7 @@
         = link_to "#" do
           出品を再開する
       .item-main__edit-box__delete
-        = link_to "#", method: 'delete' do
+        = link_to product_path(@product), method: 'delete' do
           この商品を削除する
     .item-main__message
       .item-main__message__box

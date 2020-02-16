@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :show_detail, only: :detail
+
   def index
     @ladies = Product.where(category_id:1..199).order("created_at DESC").limit(10)
     @mens = Product.where(category_id:200..345).order("created_at DESC").limit(10)
@@ -44,6 +46,9 @@ class ProductsController < ApplicationController
     @parent = @child.parent
   end
 
+  def detail
+  end
+
   private
   def product_params
     params.require(:product).permit(
@@ -58,6 +63,13 @@ class ProductsController < ApplicationController
       :price,
       images_attributes: [:image])
       .merge(user_id: current_user.id)
+  end
+
+  def show_detail
+    @product = Product.find(params[:id])
+    @grandchild = Category.find(@product[:category_id])
+    @child = @grandchild.parent
+    @parent = @child.parent
   end
 
 end

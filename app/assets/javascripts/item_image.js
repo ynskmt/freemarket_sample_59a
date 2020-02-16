@@ -120,8 +120,8 @@ $(document).on("turbolinks:load", function() {
         inputs.splice(inputs_index, 1);
       }
     });
-    $.each(defaultInput, function(input) {
-      if (input == target_image.data("id")) {
+    $.each(defaultInput, function(input, index) {
+      if (index == target_image.data("id")) {
         target_image.remove();
         defaultInput.splice(
           $.inArray(target_image.data("id"), defaultInput),

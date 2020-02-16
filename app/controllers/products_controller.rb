@@ -55,7 +55,6 @@ class ProductsController < ApplicationController
         delete_image = Image.find(id)
         delete_image.delete
       end
-      redirect_to root_path
     else
       redirect_to root_path
     end

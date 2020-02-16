@@ -29,7 +29,7 @@
             = f.label '都道府県'
             %span.signup-main__container__form-require 必須
             %br
-            = f.collection_select :prefecture, Prefecture.all, :name, :name, {prompt: "---"}, class: 'input-default'
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}, class: 'input-default'
           .signup-main__container__form-group
             = f.label '市区町村'
             %span.signup-main__container__form-require 必須

@@ -1,0 +1,114 @@
+.item-wrapper
+  = render 'shared/header'
+  .item-main
+    .item-main__container
+      .item-main__container__item-name
+        = @product.product_name
+      .item-main__container__content
+        .item-main__container__content__photo
+          = image_tag "#{@product.images[0].image}"
+        %table.item-main__container__content__detail-table
+          %tbody
+            %tr
+              %th 出品者
+              %td
+                = link_to "#" do
+                  = @product.user.nickname
+                %div
+                  .raiting
+                    = icon('fas', 'laugh')
+                    %span 10
+                  .raiting
+                    = icon('fas', 'meh')
+                    %span 20
+                  .raiting
+                    = icon('fas', 'frown')
+                    %span 20
+            %tr
+              %th カテゴリー
+              %td
+                .category-box__main
+                  = link_to "#" do
+                    = @parent.name
+                .category-box__main
+                  = link_to "#" do
+                    = icon('fas', 'chevron-right')
+                    = @child.name
+                .category-box__main
+                  = link_to "#" do
+                    = icon('fas', 'chevron-right')
+                    = @grandchild.name
+            %tr
+              %th 商品のサイズ
+              %td 
+            %tr
+              %th 商品の状態
+              %td 
+                = @product.condition.name
+            %tr
+              %th 配送料の負担
+              %td
+                = @product.delivery_charge.name
+            %tr
+              %th 配送の方法
+              %td
+                = @product.delivery_way.name
+            %tr
+              %th 配送元地域
+              %td
+                = @product.delivery_area.name
+            %tr
+              %th 発送日の目安
+              %td
+                = @product.delivery_days.name
+      .item-main__container__price-box
+        .item-main__container__price-box__price
+          = "¥#{@product.price}"
+        .item-main__container__price-box__tax
+          (税込)
+        .item-main__container__price-box__shipping-fee
+          送料込み
+    .item-main__edit-box
+      .item-main__edit-box__btn
+        = link_to "#", class: "aho" do
+          商品の編集
+      .item-main__edit-box__text
+        or
+      .item-main__edit-box__restart
+        = link_to "#" do
+          出品を再開する
+      .item-main__edit-box__delete
+        = link_to "#", method: 'delete' do
+          この商品を削除する
+    .item-main__message
+      .item-main__message__box
+        = form_with do |f|
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.text_area :comment, class: "input-comment"
+          = f.submit "コメントする", class: "btn-comment"
+    .item-main__link
+      .item-main__link__prev
+        = link_to "#" do
+          = icon('fas', 'chevron-left')
+          ナルト
+      .item-main__link__next
+        = link_to "#" do
+          ワンピース
+          = icon('fas', 'chevron-right')
+    .item-main__social-media
+      .item-main__social-media__center
+      %ul.item-main__social-media__box
+        %li 
+          .facebook-icon.icon
+            = link_to "#" do
+              = icon('fab', 'facebook-square')
+        %li
+          .twitter-icon.icon
+            = link_to "#" do
+              = icon('fab', 'twitter')
+        %li 
+          .pinterest-icon.icon
+            = link_to "#" do
+              = icon('fab', 'pinterest-square')
+    .item-main__user-profile
+  = render 'shared/footer'

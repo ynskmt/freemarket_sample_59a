@@ -4,13 +4,13 @@
     .signup-main__container
       .signup-main__container__top
         支払い方法
-      = form_with model: @card, url: cards_path, local: true, method: 'post', class: "signup-form" do |f|
+      = form_with model: @card, url: pay_cards_path, local: true, class: "signup-form", html: { name: 'inputForm' } do |f|
         .signup-main__container__box
           .signup-main__container__form-group
             = f.label 'カード番号'
             %span.signup-main__container__form-require 必須
             %br
-            = f.text_field :card_num, autofocus: true, placeholder: '例)半角数字のみ', class: 'input-default'
+            = f.text_field :card_num, autofocus: true, placeholder: '例)半角数字のみ', class: 'input-default', id: "card_number"
             %ul.signup-main__container__card-box
           .signup-main__container__form-group
             = f.label '有効期限'
@@ -18,16 +18,18 @@
             %br
             .signup-main__container__date-box
               .signup-main__container__date-box__select-wrap
-                = f.select :expiration_month, [*1..12].reverse, prompt: "--", class: 'form-signup__month__select'
+                = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'form-signup__month__select'
+                = icon 'fas', 'chevron-down'
                 %span 月
               .signup-main__container__date-box__select-wrap
-                = f.select :expiration_year, [*2020..2030].reverse, prompt: "--", class: 'form-signup__month__select'
+                = f.select :exp_year, [["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'form-signup__month__select'
+                = icon 'fas', 'chevron-down'
                 %span 年
           .signup-main__container__form-group
             = f.label 'セキュリティーコード'
             %span.signup-main__container__form-require 必須
             %br
-            = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default'
+            = f.text_field :cvc, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', id: 'cvc'
           .signup-main__container__content__form-group
             .signup-main__container__content__form-group__text-right
               = link_to "#", class: "question" do
@@ -35,6 +37,47 @@
               = link_to "#" do
                 カード裏面の番号とは?
           .signup-main__container__content
-            = f.submit '次へ進む', class: "input-default btn-next"
-            = link_to "仮ボタン 次のページ", done_users_path
+            #card_token
+            = submit_tag '次へ進む', id: 'token_submit', class: "input-default btn-next"
   = render 'shared/footer-simple'
+
+-# .signup-wrapper
+-#   = render 'cards/header-card'
+-#   .signup-main
+-#     .signup-main__container
+-#       .signup-main__container__top
+-#         支払い方法
+-#       = form_with model: @card, url: cards_path, local: true, method: 'post', class: "signup-form" do |f|
+-#         .signup-main__container__box
+-#           .signup-main__container__form-group
+-#             = f.label 'カード番号'
+-#             %span.signup-main__container__form-require 必須
+-#             %br
+-#             = f.text_field :card_num, autofocus: true, placeholder: '例)半角数字のみ', class: 'input-default'
+-#             %ul.signup-main__container__card-box
+-#           .signup-main__container__form-group
+-#             = f.label '有効期限'
+-#             %span.signup-main__container__form-require 必須
+-#             %br
+-#             .signup-main__container__date-box
+-#               .signup-main__container__date-box__select-wrap
+-#                 = f.select :expiration_month, [*1..12].reverse, prompt: "--", class: 'form-signup__month__select'
+-#                 %span 月
+-#               .signup-main__container__date-box__select-wrap
+-#                 = f.select :expiration_year, [*2020..2030].reverse, prompt: "--", class: 'form-signup__month__select'
+-#                 %span 年
+-#           .signup-main__container__form-group
+-#             = f.label 'セキュリティーコード'
+-#             %span.signup-main__container__form-require 必須
+-#             %br
+-#             = f.text_field :security_code, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default'
+-#           .signup-main__container__content__form-group
+-#             .signup-main__container__content__form-group__text-right
+-#               = link_to "#", class: "question" do
+-#                 ?
+-#               = link_to "#" do
+-#                 カード裏面の番号とは?
+-#           .signup-main__container__content
+-#             = f.submit '次へ進む', class: "input-default btn-next"
+-#             = link_to "仮ボタン 次のページ", done_users_path
+-#   = render 'shared/footer-simple'

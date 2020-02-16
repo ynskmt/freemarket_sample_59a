@@ -56,7 +56,7 @@ class ProductsController < ApplicationController
         delete_image.delete
       end
     else
-      redirect_to root_path
+      redirect_to detail_product_path(@product.id)
     end
   end
 

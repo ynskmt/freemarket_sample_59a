@@ -82,7 +82,7 @@
                   発送元の地域
                   %span
                     必須
-              = f.collection_select :delivery_area_id, @prefecture, :id, :name, {prompt: '---'}, class: 'form'
+              = f.collection_select :delivery_area_id, @delivery_area, :id, :name, {prompt: '---'}, class: 'form'
               .sell-main__container__sell-form__delivery__box__form-group
                 %label
                   発送までの日数

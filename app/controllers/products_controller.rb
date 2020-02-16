@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:detail, :show]
+  before_action :set_category, only: [:new, :edit]
 
   def index
     @ladies = Product.where(category_id:1..199).order("created_at DESC").limit(10)
@@ -7,14 +8,6 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    @condition = Condition.all
-    @category = Category.where(ancestry: nil)
-    @delivery_charge = DeliveryCharge.all
-    @delivery_way = DeliveryWay.all
-    @prefecture = Prefecture.all
-    @delivery_days = DeliveryDays.all
-    @product.images.new
   end
 
   def category_children
@@ -64,6 +57,17 @@ class ProductsController < ApplicationController
     @grandchild = Category.find(@product[:category_id])
     @child = @grandchild.parent
     @parent = @child.parent
+  end
+
+  def set_category
+    @product = Product.new
+    @condition = Condition.all
+    @category = Category.where(ancestry: nil)
+    @delivery_charge = DeliveryCharge.all
+    @delivery_way = DeliveryWay.all
+    @delivery_area = DeliveryArea.all
+    @delivery_days = DeliveryDays.all
+    @product.images.new
   end
 
 end

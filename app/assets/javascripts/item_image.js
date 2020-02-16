@@ -200,7 +200,7 @@ $(document).on("turbolinks:load", function() {
   if(document.URL.match(/products/) && document.URL.match(/edit/)) {
     $(document).ready( function() {
       productId = $("#product-id").data("id");
-      if (itemId != null) {
+      if (productId != null) {
         $.ajax({
           url: "/products/get_image",
           type: "GET",

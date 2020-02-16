@@ -1,5 +1,4 @@
 $(function() {
-  console.log($(".bottom-content__item__category__menu"));
   
   $('.bottom-content__item__category').mouseover(function(){
     $('.bottom-content__item__category__menu').toggle(true);

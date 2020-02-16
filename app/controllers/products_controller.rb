@@ -8,6 +8,8 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
+    @product.images.new
   end
 
   def category_children
@@ -33,6 +35,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
@@ -71,14 +74,12 @@ class ProductsController < ApplicationController
   end
 
   def set_category
-    @product = Product.new
     @condition = Condition.all
     @category = Category.where(ancestry: nil)
     @delivery_charge = DeliveryCharge.all
     @delivery_way = DeliveryWay.all
     @delivery_area = DeliveryArea.all
     @delivery_days = DeliveryDays.all
-    @product.images.new
   end
 
 end

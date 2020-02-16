@@ -36,7 +36,11 @@ class ProductsController < ApplicationController
   end
 
   def update
-    
+
+  end
+
+  def get_image
+    @images = Product.find(params[:product_id]).images
   end
 
   def show

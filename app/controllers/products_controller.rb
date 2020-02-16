@@ -46,11 +46,11 @@ class ProductsController < ApplicationController
       :product_name,
       :product_description,
       :category_id,
-      :condition,
-      :delivery_charge,
-      :delivery_way,
-      :delivery_area,
-      :delivery_days,
+      :condition_id,
+      :delivery_charge_id,
+      :delivery_way_id,
+      :delivery_area_id,
+      :delivery_days_id,
       :price,
       images_attributes: [:image])
       .merge(user_id: current_user.id)

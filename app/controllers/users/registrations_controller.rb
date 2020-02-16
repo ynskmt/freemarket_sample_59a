@@ -43,24 +43,40 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_address and return
     end
     @user.build_address(@address.attributes)
-    session["devise.regist_data1"] = {address: @address.attributes}
-    @card = @user.build_card
-    render :new_card
-  end
-
-  def create_card
-    @user = User.new(session["devise.regist_data"]["user"])
-    @address = Address.new(session["devise.regist_data1"]["address"])
-    @card = Card.new(card_params)
-    unless @card.valid?
-      flash.now[:alert] = @card.errors.full_messages
-      render :new_card and return
-    end
-    @user.build_address(@address.attributes)
-    @user.build_card(@card.attributes)
     @user.save
     sign_in(:user, @user)
+    redirect_to root_path
+    # redirect_to new_card_path
   end
+
+  # def create_address
+  #   @user = User.new(session["devise.regist_data"]["user"])
+  #   @address = Address.new(address_params)
+  #   unless @address.valid?
+  #     flash.now[:alert] = @address.errors.full_messages
+  #     render :new_address and return
+  #   end
+  #   @user.build_address(@address.attributes)
+  #   session["devise.regist_data1"] = {address: @address.attributes}
+  #   @card = @user.build_card
+  #   render :new_card
+  # end
+
+
+
+  # def create_card
+  #   @user = User.new(session["devise.regist_data"]["user"])
+  #   @address = Address.new(session["devise.regist_data1"]["address"])
+  #   @card = Card.new(card_params)
+  #   unless @card.valid?
+  #     flash.now[:alert] = @card.errors.full_messages
+  #     render :new_card and return
+  #   end
+  #   @user.build_address(@address.attributes)
+  #   @user.build_card(@card.attributes)
+  #   @user.save
+  #   sign_in(:user, @user)
+  # end
 
 
   # GET /resource/sign_up
@@ -105,12 +121,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def address_params
-    params.require(:address).permit(:last_name,  :first_name, :last_name_kana, :first_name_kana, :zip_code, :prefecture, :city, :block_num, :building_name, :phone_num)
+    params.require(:address).permit(
+      :last_name,
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :zip_code,
+      :prefecture_id,
+      :city,
+      :block_num,
+      :building_name,
+      :phone_num)
   end
 
-  def card_params
-    params.require(:card).permit(:card_num, :expiration_month, :expiration_year, :security_code)
-  end
+  # def card_params
+  #   params.require(:card).permit(:card_num, :expiration_month, :expiration_year, :security_code)
+  # end
+
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])

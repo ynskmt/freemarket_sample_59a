@@ -51,7 +51,7 @@
                   商品の状態
                   %span
                     必須
-              = f.collection_select :condition, @condition, :name, :name, {prompt: '---'}, class: 'form'
+              = f.collection_select :condition_id, @condition, :id, :name, {prompt: '---'}, class: 'form'
           .sell-main__container__sell-form__delivery
             .sell-main__container__sell-form__delivery__head
               配送について
@@ -62,25 +62,25 @@
                   配送料の負担
                   %span
                     必須
-              = f.collection_select :delivery_charge, @delivery_charge, :name, :name, {prompt: '---'},class: 'form'
+              = f.collection_select :delivery_charge_id, @delivery_charge, :id, :name, {prompt: '---'},class: 'form'
               .sell-main__container__sell-form__delivery__box__form-group
                 %label
                   配送の方法
                   %span
                     必須
-              = f.collection_select :delivery_way, @delivery_way, :name, :name, {prompt: '---'}, class: 'form'
+              = f.collection_select :delivery_way_id, @delivery_way, :id, :name, {prompt: '---'}, class: 'form'
               .sell-main__container__sell-form__delivery__box__form-group
                 %label
                   発送元の地域
                   %span
                     必須
-              = f.collection_select :delivery_area, @prefecture, :name, :name, {prompt: '---'}, class: 'form'
+              = f.collection_select :delivery_area_id, @prefecture, :id, :name, {prompt: '---'}, class: 'form'
               .sell-main__container__sell-form__delivery__box__form-group
                 %label
                   発送までの日数
                   %span
                     必須
-              = f.collection_select :delivery_days, @delivery_days, :name, :name, {prompt: '---'}, class: 'form'
+              = f.collection_select :delivery_days_id, @delivery_days, :id, :name, {prompt: '---'}, class: 'form'
           .sell-main__container__sell-form__price
             .sell-main__container__sell-form__price__head
               販売価格(300〜9,999,999)

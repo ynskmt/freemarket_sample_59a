@@ -14,14 +14,22 @@
             .sell-main__container__sell-form__upload-box__bottom
               最大10枚までアップロードできます
             .sell-main__container__sell-form__upload-box__dropbox
-              = f.fields_for :images do |i|
-                = i.label :image, class: 'label' do
-                  = i.file_field :image, class: 'hidden'
-                  .sell-main__container__sell-form__upload-box__dropbox__text
-                    %p
-                      ドラッグアンドドロップ
-                      %br
-                      またはクリックしてファイルをダウンロード
+              = f.fields_for :item do |i|
+                .dropzone-container
+                  .box
+                    #preview
+                    .dropzone-area
+                      = i.label :image, class: 'dropzone-box', for: "upload-image" do
+                        .input_area
+                          = i.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                        .input-area-text 
+                          %p ここをクリックしてください
+                  .box2
+                    #preview2
+                    .dropzone-area2
+                      = i.label :image, class: 'dropzone-box', for: "upload-image" do
+                        .input-area-text 
+                          %p ここをクリックしてください
           .sell-main__container__sell-form__name
             .sell-main__container__sell-form__name__form-group
               %label

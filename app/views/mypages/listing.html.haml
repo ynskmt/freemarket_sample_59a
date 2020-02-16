@@ -13,7 +13,23 @@
             取引中
           = link_to "#", class: "mypage-main__container__box__lists__inactive" do
             売却済み
-          .mypage-main__container__box__no-item
+        - unless @products.any?
+          .mypage-main__container__box__no-product
             出品中の商品はありません
-          .mypage-main__container__box__items
+        - else
+          .mypage-main__container__box__products
+            - @products.each do |product|
+              = link_to "#", class: "mypage-main__container__box__products__product" do
+                .mypage-main__container__box__products__product__image
+                  = image_tag "#{product.images[0].image}"
+                .mypage-main__container__box__products__product__content
+                  .mypage-main__container__box__products__product__content__name
+                    = product.product_name
+                  .mypage-main__container__box__products__product__content__icon
+                    .far.fa-heart
+                      0
+                    .far.fa-comment-alt
+                      0
+                .mypage-main__container__box__products__product__arrow
+                  .fas.fa-angle-right
   = render 'shared/footer'

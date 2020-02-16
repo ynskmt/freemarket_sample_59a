@@ -31,7 +31,7 @@ class MypagesController < ApplicationController
   end
 
   def listing
-    @product = current_user.products
+    @products = current_user.products
   end
 
 

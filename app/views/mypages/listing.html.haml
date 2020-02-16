@@ -19,7 +19,7 @@
         - else
           .mypage-main__container__box__products
             - @products.each do |product|
-              = link_to detail_item_path(item.id), class: "mypage-main__container__box__products__product" do
+              = link_to detail_product_path(product.id), class: "mypage-main__container__box__products__product" do
                 .mypage-main__container__box__products__product__image
                   = image_tag "#{product.images[0].image}"
                 .mypage-main__container__box__products__product__content

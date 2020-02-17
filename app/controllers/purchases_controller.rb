@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
   before_action :set_product_card, only: [:show, :done]
   
   def show
+    redirect_to root_path if @product.user.id == current_user.id
   end
 
   def pay

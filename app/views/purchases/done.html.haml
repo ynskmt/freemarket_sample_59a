@@ -1,0 +1,46 @@
+.done-wrapper
+  = render 'shared/header-simple'
+  .done-main
+    .done-main__container
+      .done-main__container__top
+        .fa.fa-clock
+        %span 発送をお待ちください
+        .done-main__container__top__text
+          出品者からの発送通知をお待ちください
+      .done-main__container__complete
+        購入が完了しました
+      .done-main__container__item
+        .done-main__container__item__box
+          .done-main__container__item__box__main
+            .done-main__container__item__box__main__image
+              = image_tag "#{@product.images[0].image}", height: "64px" , width: "64px"
+            .done-main__container__item__box__main__name
+              = @product.product_name
+            .done-main__container__item__box__main__price
+              = "¥#{@product.price}"
+              %span 送料込み
+      .done-main__container__user
+        .done-main__container__user__box
+          配送先
+          .done-main__container__user__box__text
+            = "〒#{current_user.address.zip_code}"
+            %br
+            = current_user.address.prefecture.name + current_user.address.city + current_user.address.block_num + current_user.address.building_name
+          .done-main__container__user__box__change
+            = link_to "#" do
+              変更する
+              %span 
+              %i.fa.fa-chevron-right
+      .done-main__container__user
+        .done-main__container__user__box
+          支払方法
+          .done-main__container__user__box__text
+            ="************"+@card_info.last4
+            %br
+            ="#{@card_info.exp_month}/#{@card_info.exp_year%100}"
+          .done-main__container__user__box__change
+            = link_to "#" do
+              変更する
+              %span
+              %i.fa.fa-chevron-right
+  = render 'shared/footer-simple'

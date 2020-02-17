@@ -1,12 +1,7 @@
 class PurchasesController < ApplicationController
+  before_action :set_product_card, only: [:show, :done]
+  
   def show
-    @product = Product.find(params[:id])
-    @card = current_user.card
-    if @card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @card_info = customer.cards.retrieve(@card.card_id)
-    end
   end
 
   def pay
@@ -28,5 +23,15 @@ class PurchasesController < ApplicationController
   end
 
   def done
+  end
+
+  def set_product_card
+    @product = Product.find(params[:id])
+    @card = current_user.card
+    if @card.present?
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_info = customer.cards.retrieve(@card.card_id)
+    end
   end
 end

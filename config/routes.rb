@@ -51,8 +51,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchases, only: [:show, :create] do
+  resources :purchases, only: [:show] do
     member do
+      post 'pay'
       get 'done'
     end
   end

@@ -36,9 +36,9 @@
               .purchase-main__container__user__box__pay__card__text
                 クレジットカード
               .purchase-main__container__user__box__pay__card__num
-                1111111111111111
+                ="************"+@card_info.last4
               .purchase-main__container__user__box__pay__card__date
-                有効期限 1/25
+                ="#{@card_info.exp_month}/#{@card_info.exp_year%100}"
             .purchase-main__container__user__box__pay__card
               VISA
           .purchase-main__container__user__box__address
@@ -60,6 +60,4 @@
           .purchase-main__container__user__box__btn
             = link_to  "#", method: :post, class: 'purchase' do
               購入する
-
-
   = render 'shared/footer-simple'

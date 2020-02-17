@@ -58,6 +58,6 @@
               = current_user.last_name
               = current_user.first_name
           .purchase-main__container__user__box__btn
-            = link_to  "#", method: :post, class: 'purchase' do
+            = link_to  pay_purchase_path, method: :post, class: 'purchase' do
               購入する
   = render 'shared/footer-simple'

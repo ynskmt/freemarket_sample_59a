@@ -89,7 +89,8 @@ class ProductsController < ApplicationController
       :delivery_days_id,
       :price,
       images_attributes: [:image])
-      .merge(user_id: current_user.id)
+      .merge(user_id: current_user.id,
+              selling_status_id: 1)
   end
 
   def set_product

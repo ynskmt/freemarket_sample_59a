@@ -20,6 +20,8 @@
       &__photo {
         height: 300px;
         width: 300px;
+        position: relative;
+        @include soldProduct;
         img {
           height: 300px;
           width: 300px;

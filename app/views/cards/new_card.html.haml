@@ -1,0 +1,40 @@
+.mypage-wrapper
+  = render 'shared/header'
+  .mypage-main
+    = render 'mypages/side-bar'
+    .mypage-main__container
+      .mypage-main__container__new-card-box
+        .mypage-main__container__new-card-box__head
+          クレジットカード情報入力
+        = form_with model: @card, url: cards_path,method: 'post', local: true, class: "signup-form", html: { name: 'inputForm' } do |f|
+          .mypage-main__container__new-card-box__main
+            .mypage-main__container__new-card-box__main__form-group
+              = f.label 'カード番号'
+              %span.mypage-main__container__new-card-box__main__form-require 必須
+              %br
+              = f.text_field :card_number, autofocus: true, placeholder: '例)半角数字のみ', class: 'input-default', id: "card_number"
+            .mypage-main__container__new-card-box__main__form-group
+              = f.label '有効期限'
+              %span.mypage-main__container__new-card-box__main__form-require 必須
+              %br
+              .mypage-main__container__new-card-box__main__date-box
+                .mypage-main__container__new-card-box__main__date-box__select-wrap
+                  = f.select :exp_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{} , class: 'card-select'
+                  %span 月
+                .mypage-main__container__new-card-box__main__date-box__select-wrap
+                  = f.select :exp_year, [["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{} , class: 'card-select'
+                  %span 年
+            .mypage-main__container__new-card-box__main__form-group
+              = f.label 'セキュリティーコード'
+              %span.mypage-main__container__new-card-box__main__form-require 必須
+              %br
+              = f.text_field :cvc, placeholder: 'カード背面4桁もしくは3桁の番号', class: 'input-default', id: 'cvc'
+              .mypage-main__container__new-card-box__main__form-group__bottom-text
+                = link_to "#", class: "question" do
+                  ?
+                = link_to "#" do
+                  カード裏面の番号とは?
+            .mypage-main__container__new-card-box__main__btn
+              #card_token
+              = submit_tag '追加する', id: 'token_submit', class: "input-default btn-red"
+  = render 'shared/footer'

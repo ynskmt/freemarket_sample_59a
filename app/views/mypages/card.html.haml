@@ -34,7 +34,7 @@
                 .mypage-main__container__card-box__content__top__card__date
                   ="#{@card_information.exp_month}/#{@card_information.exp_year%100}"
                 .mypage-main__container__card-box__content__top__card__delete
-                  = link_to "#", {method: :delete} do
+                  = link_to card_path(@card), {method: :delete} do
                     削除する
             .mypage-main__container__card-box__content__bottom
               = link_to "#" do

@@ -1,5 +1,11 @@
 class CardsController < ApplicationController
   require 'payjp'
+
+  def new
+  end
+
+  def new_card
+  end
   
   def create
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
@@ -20,12 +26,19 @@ class CardsController < ApplicationController
           redirect_to controller: :mypages, action: :card
         end
       else
-        if path[:controller] == "cards" && path[:action] == "new"
-          redirect_to action: 'new'
-        elsif path[:controller] == "cards" && path[:action] == "new_card"
-          redirect_to controller: :mypages, action: :card
-        end
+        redirect_to action: "pay"
       end
     end
+  end
+
+  def destroy
+    @card = current_user.card
+    if @card.present?
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      customer.delete
+      @card.delete
+    end
+    redirect_to controller: :mypages, action: :card
   end
 end

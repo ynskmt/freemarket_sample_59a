@@ -10,7 +10,7 @@
             .sold-out
               .sold-out__text 
                 SOLD
-            = image_tag "#{@product.images[0].image}"
+          = image_tag "#{@product.images[0].image}"
         %table.item-main__container__content__detail-table
           %tbody
             %tr
@@ -73,9 +73,17 @@
           (税込)
         .item-main__container__price-box__shipping-fee
           送料込み
-      .item-main__container__buy-btn
-        = link_to purchase_path(@product.id) do
-          購入画面に進む
+
+      - if @product.selling_status_id == "3"
+        .item-main__container__btn
+          = link_to "#", class: 'btn bought' do
+            売り切れました
+
+      - elsif  @product.selling_status_id == "1"
+        .item-main__container__btn
+          = link_to purchase_path(@product.id), class: 'btn buy' do
+            購入画面に進む
+
       .item-main__container__description
         %p
           おもしろい

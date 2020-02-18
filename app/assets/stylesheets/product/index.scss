@@ -92,25 +92,7 @@
             height: 188px;
             width: 188px;
             position: relative;
-            .sold-out {
-              position: absolute;
-              top: 0;
-              width: 0;
-              height: 0;
-              border-top: 60px solid #ea352d ;
-              border-right: 60px solid transparent;
-              border-bottom: 60px solid transparent;
-              border-left: 60px solid #ea352d ;
-              z-index:100;
-              &__text {
-                transform: rotate(-45deg);
-                font-size: 25px;
-                margin:-35px 0px 0px -60px;
-                color: #fff;
-                letter-spacing: 2px;
-                font-weight: 600;
-              }
-            }
+            @include soldProduct;
             img {
               height: 188px;
               width: 188px;

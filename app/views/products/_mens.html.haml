@@ -10,6 +10,10 @@
         .toppage-main__container__item-box__contents__images__box
           = link_to product_path(product.id) do
             .toppage-main__container__item-box__contents__images__box__image
+              - if product.selling_status_id == "3"
+                .sold-out
+                  .sold-out__text 
+                    SOLD
               = image_tag "#{product.images[0].image}"
             .toppage-main__container__item-box__contents__images__box__price
               = "¥#{product.price}"

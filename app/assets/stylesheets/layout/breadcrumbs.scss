@@ -1,0 +1,16 @@
+.breadcrumbs {
+  border-top: 1px solid #eee;
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px 0;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.18) 0 2px 4px;
+  font-size: 14px;
+  ul {
+    width: 1020px;
+    margin: 0 auto;
+    .breadcrumbs-list {
+      margin: 0 auto;
+    }
+  }
+}

@@ -7,6 +7,8 @@
 @import "devise/sessions/new";
 @import "devise/shared/header-registration";
 
+@import "layout/breadcrumbs";
+
 @import "mypage/side-bar";
 @import "mypage/index";
 @import "mypage/logout";

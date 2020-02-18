@@ -50,4 +50,11 @@ Rails.application.routes.draw do
       post 'pay'
     end
   end
+
+  resources :purchases, only: [:show] do
+    member do
+      post 'pay'
+      get 'done'
+    end
+  end
 end

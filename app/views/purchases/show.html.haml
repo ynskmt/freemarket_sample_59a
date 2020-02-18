@@ -1,0 +1,63 @@
+.purchase-wrapper
+  = render 'shared/header-simple'
+  .purchase-main
+    .purchase-main__container
+      .purchase-main__container__top
+        購入内容の確認
+      .purchase-main__container__item
+        .purchase-main__container__item__box
+          .purchase-main__container__item__box__content
+            .purchase-main__container__item__box__content__image
+              = image_tag "#{@product.images[0].image}"
+            .purchase-main__container__item__box__content__detail
+              .purchase-main__container__item__box__content__detail__name
+                = @product.product_name
+              .purchase-main__container__item__box__content__detail__price
+                = "¥#{@product.price}"
+                （税込）送料込み
+      .purchase-main__container__user
+        .purchase-main__container__user__box
+          .purchase-main__container__user__box__price
+            .purchase-main__container__user__box__price__top
+              .purchase-main__container__user__box__price__top__text
+                支払金額
+              .purchase-main__container__user__box__price__top__price
+                = "¥#{@product.price}"
+            .purchase-main__container__user__box__price__bottom
+              ポイントを使用（所持ポイント:0p）
+          .purchase-main__container__user__box__pay
+            .purchase-main__container__user__box__pay__way
+              %p
+                支払方法
+              .change
+                = link_to "#" do
+                  変更する
+            .purchase-main__container__user__box__pay__card
+              .purchase-main__container__user__box__pay__card__text
+                クレジットカード
+              .purchase-main__container__user__box__pay__card__num
+                ="************"+@card_info.last4
+              .purchase-main__container__user__box__pay__card__date
+                ="#{@card_info.exp_month}/#{@card_info.exp_year%100}"
+            .purchase-main__container__user__box__pay__card
+              VISA
+          .purchase-main__container__user__box__address
+            .purchase-main__container__user__box__address__top
+              %p
+                配送先
+              .change
+                = link_to "#" do
+                  変更する
+            .purchase-main__container__user__box__address__bottom
+              = "〒#{current_user.address.zip_code}"
+              %br
+              = current_user.address.prefecture.name
+              = current_user.address.city
+              = current_user.address.block_num
+              %br
+              = current_user.last_name
+              = current_user.first_name
+          .purchase-main__container__user__box__btn
+            = link_to  pay_purchase_path, method: :post, class: 'purchase' do
+              購入する
+  = render 'shared/footer-simple'

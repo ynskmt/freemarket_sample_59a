@@ -1,0 +1,90 @@
+.done-wrapper {
+  background-color: #f5f5f5;
+  height: 100%;
+  width: 100%;
+}
+
+.done-main {
+  &__container {
+    width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+    &__top {
+      background: #fff6de;
+      color: red;
+      padding: 30px 0;
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      .fa {
+        font-size: 30px;
+      }
+      span {
+        margin-left: 10px;
+        vertical-align: top;
+      }
+      &__text {
+        padding-top: 30px;
+        background: #fff6de;
+        font-size: 14px;
+        color: black;
+        text-align: center;
+      }
+    }
+    &__complete {
+      padding: 16px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: bold;
+    }
+    &__item {
+      padding: 24px 12.5% 0;
+      border-top: 1px solid #f5f5f5;
+      text-align: center;
+      &__box {
+        max-width: 320px;
+        margin: 0 auto;
+        &__main {
+          &__name {
+            font-size: 14px;
+            font-weight: 600;
+          }
+          &__price {
+            margin: 8px 0 0;
+            font-size: 22px;
+            font-weight: 600;
+            span {
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0 0 0 8px;
+            }
+          }
+        }
+      }
+    }
+    &__user {
+      margin: 40px 0 0;
+      padding: 24px 12.5% 0;
+      border-top: 1px solid #f5f5f5;
+      &:last-child {
+        padding-bottom: 40px;
+      }
+      &__box {
+        max-width: 320px;
+        margin: 0 auto;
+        &__text {
+          margin: 8px 0 0;
+          font-size: 13px;
+          font-size: 13px;
+        }
+        &__change {
+          text-align: right;
+          a {
+            color: #0099e8;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}

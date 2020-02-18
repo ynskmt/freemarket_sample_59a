@@ -70,7 +70,7 @@
         .item-main__container__price-box__shipping-fee
           送料込み
       .item-main__container__buy-btn
-        = link_to "#" do
+        = link_to purchase_path(@product.id) do
           購入画面に進む
       .item-main__container__description
         %p

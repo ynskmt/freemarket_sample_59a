@@ -1,4 +1,5 @@
 class PurchasesController < ApplicationController
+  before_action :authenticate_user!
   require 'payjp'
 
   before_action :set_product_card, only: [:show, :done]

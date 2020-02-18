@@ -1,4 +1,6 @@
 class PurchasesController < ApplicationController
+  require 'payjp'
+
   before_action :set_product_card, only: [:show, :done]
   
   def show
@@ -9,7 +11,7 @@ class PurchasesController < ApplicationController
     card = current_user.card
     product = Product.find(params[:id])
     if product.selling_status_id === "1"
-      Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
         Payjp::Charge.create(
           amount: product.price,
           customer: card.customer_id,
@@ -30,7 +32,7 @@ class PurchasesController < ApplicationController
     @product = Product.find(params[:id])
     @card = current_user.card
     if @card.present?
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_info = customer.cards.retrieve(@card.card_id)
     end

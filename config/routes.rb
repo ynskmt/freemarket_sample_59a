@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'listing'
+      get 'card'
     end
 
     member do

@@ -48,6 +48,7 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :create, :destroy] do
     collection do
+      get 'new_card'
       post 'pay'
     end
   end

@@ -4,7 +4,7 @@
     .signup-main__container
       .signup-main__container__top
         支払い方法
-      = form_with model: @card, url: pay_cards_path, local: true, class: "signup-form", html: { name: 'inputForm' } do |f|
+      = form_with model: @card, url: cards_path, local: true, class: "signup-form", html: { name: 'inputForm' } do |f|
         .signup-main__container__box
           .signup-main__container__form-group
             = f.label 'カード番号'

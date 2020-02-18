@@ -21,3 +21,8 @@ crumb :profile do
   link "プロフィール", profile_mypage_path
   parent :mypage
 end
+
+crumb :identification do
+  link "本人情報", identification_mypage_path
+  parent :mypage
+end

@@ -10,7 +10,7 @@ class CardsController < ApplicationController
   def create
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
     if params['payjp-token'].blank?
-      redirect_to action: "new"
+      redirect_to action: "new_card"
     else
       user_id = current_user.id
       customer = Payjp::Customer.create(
@@ -26,7 +26,7 @@ class CardsController < ApplicationController
           redirect_to controller: :mypages, action: :card
         end
       else
-        redirect_to action: "pay"
+        redirect_to action: "new_card"
       end
     end
   end

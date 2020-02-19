@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   root 'products#index'
+
   resources :products do
     collection do
       get "category_children", defaults: { format: 'json' }
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
       get 'listing'
       get 'card'
     end
-
     member do
       get 'profile'
       post 'update_profile'
@@ -59,4 +59,6 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
+
+  resources :searches, only: [:index]
 end

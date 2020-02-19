@@ -4,8 +4,8 @@
       .top-content__logo
         = link_to root_path do
           = image_tag("fmarket_logo_red.svg", class:"top-content__logo")
-      = form_with class: 'top-content__search', url: products_path, local: true do |f|
-        = f.text_field :keyword, placeholder:'何かお探しですか？', class: 'top-content__search__keyword', id: 'top-content__search__keyword'
+      = search_form_for(@q, url: searches_path, class: 'top-content__search') do |f|
+        = f.search_field :product_name_cont, placeholder:'何かお探しですか？', class: 'top-content__search__keyword', id: 'top-content__search__keyword'
         %label.top-content__search__icon
           = icon('fas', 'search')
           = f.submit :submit, style: "display: none;"

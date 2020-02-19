@@ -15,15 +15,35 @@
         .category-main__container__item-box__contents
           .category-main__container__item-box__contents__images
             - @category_products.each do |product|
-              .category-main__container__item-box__contents__images__box
-                = link_to product_path(product.id) do
-                  .category-main__container__item-box__contents__images__box__image
-                    = image_tag "#{product.images[0].image}"
-                  .category-main__container__item-box__contents__images__box__price
-                    = "¥#{product.price}"
-                  .category-main__container__item-box__contents__images__box__text
-                    %div
-                      = product.product_name
+              - if user_signed_in? 
+                - unless current_user.id == product.user_id
+                  .category-main__container__item-box__contents__images__box
+                    = link_to product_path(product.id) do
+                      .category-main__container__item-box__contents__images__box__image
+                        - if product.selling_status_id == "3"
+                          .sold-out
+                            .sold-out__text 
+                              SOLD
+                        = image_tag "#{product.images[0].image}"
+                      .category-main__container__item-box__contents__images__box__price
+                        = "¥#{product.price}"
+                      .category-main__container__item-box__contents__images__box__text
+                        %div
+                          = product.product_name
+              - else
+                .category-main__container__item-box__contents__images__box
+                  = link_to product_path(product.id) do
+                    .category-main__container__item-box__contents__images__box__image
+                      - if product.selling_status_id == "3"
+                        .sold-out
+                          .sold-out__text 
+                            SOLD
+                      = image_tag "#{product.images[0].image}"
+                    .category-main__container__item-box__contents__images__box__price
+                      = "¥#{product.price}"
+                    .category-main__container__item-box__contents__images__box__text
+                      %div
+                        = product.product_name
       .category-main__container__page
         %ul.category-main__container__page__num
           %li.active

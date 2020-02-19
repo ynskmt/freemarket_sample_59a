@@ -1,0 +1,54 @@
+.wrapper
+  = render "shared/header"
+  = render 'products/exhibit-btn'
+  .category-main
+    .category-main__container
+      %ul.category-main__container__list
+        %li
+          = link_to "#" do
+            バッグ
+        %li
+          = link_to "#" do
+            ジャケット/アウター
+      .category-main__container__item-box
+        .category-main__container__item-box__head
+          レディースの商品一覧
+        .category-main__container__item-box__contents
+          .category-main__container__item-box__contents__images
+            - @ladies.each do |product|
+              .category-main__container__item-box__contents__images__box
+                = link_to product_path(product.id) do
+                  .category-main__container__item-box__contents__images__box__image
+                    = image_tag "#{product.images[0].image}"
+                  .category-main__container__item-box__contents__images__box__price
+                    = "¥#{product.price}"
+                  .category-main__container__item-box__contents__images__box__text
+                    %div
+                      = product.product_name
+      .category-main__container__page
+        %ul.category-main__container__page__num
+          %li.active
+            1
+          %li
+            2
+          %li
+            3
+          %li
+            4
+          %li
+            5
+        %ul.category-main__container__page__next
+          %li
+            .fa.fa-chevron-right
+          %li
+            .fa.fa-chevron-circle-right
+      .category-main__container__description
+        .category-main__container__description__title
+          レディース
+        .category-main__container__description__text
+          レディースの着ない服、いらない洋服を売るならメルカリへ。
+          レディースの商品は100万点以上あります。
+          人気のあるカテゴリーはトートバッグとロングコートです。
+          人気の商品は「pink adobe ネイビーチェック ハンドバッグ」や「アンクルージュ コート ハート セーラー」があります。
+          レディースの買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
+  = render "shared/footer"

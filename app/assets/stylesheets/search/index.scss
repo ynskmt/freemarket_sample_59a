@@ -144,6 +144,8 @@
             &__image {
               height: 188px;
               width: 188px;
+              position: relative;
+              @include soldProduct;
               img {
                 height: 188px;
                 width: 188px;

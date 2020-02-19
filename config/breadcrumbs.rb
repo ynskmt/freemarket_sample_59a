@@ -26,3 +26,20 @@ crumb :identification do
   link "本人情報", identification_mypage_path
   parent :mypage
 end
+
+crumb :category_index do
+  link "カテゴリー一覧", categories_path
+  parent :root
+end
+
+crumb :category_show do
+  @category = Category.find(params[:id])
+  if @category.has_parent?
+    link  "#{@category.parent.parent.name}", root_path
+    link  "#{@category.parent.name}", root_path
+    link  "#{@category.name}", root_path
+  else
+    link  "#{@category.name}", root_path
+  end
+  parent :category_index
+end

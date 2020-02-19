@@ -34,12 +34,15 @@ end
 
 crumb :category_show do
   @category = Category.find(params[:id])
-  if @category.has_parent?
-    link  "#{@category.parent.parent.name}", root_path
-    link  "#{@category.parent.name}", root_path
-    link  "#{@category.name}", root_path
+  if @category.has_parent? && @category.has_children?
+    link  "#{@category.parent.name}", category_path(@category.parent.id)
+    link  "#{@category.name}", category_path(@category.id)
+  elsif @category.has_children?
+    link  "#{@category.name}", category_path(@category.id)
   else
-    link  "#{@category.name}", root_path
+    link  "#{@category.parent.parent.name}", category_path(@category.parent.parent.id)
+    link  "#{@category.parent.name}", category_path(@category.parent.id)
+    link  "#{@category.name}", category_path(@category.id)
   end
   parent :category_index
 end

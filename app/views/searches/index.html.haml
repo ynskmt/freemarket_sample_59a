@@ -1,0 +1,97 @@
+.search-wrapper
+  = render 'shared/header'
+  .search-main
+    .search-side-bar
+      = form_with model: @product do |f|
+        .search-side-bar__top
+          = f.select :sorts, [["並び替え",1],["価格の安い順",2],["価格の高い順",3],["出品の新しい順",4],["いいね!の多い順",5]], class: "search-side-bar__top__form"
+        .search-side-bar__box
+          .search-side-bar__box__top
+            詳細検索
+          .search-side-bar__box__form-group
+            .fas.fa-plus
+            キーワードを追加する
+            = f.text_field :name
+          .search-side-bar__box__form-group
+            .fas.fa-list-ul
+            カテゴリーを選択する
+            = f.text_field :name
+          .search-side-bar__box__form-group
+            .fas.fa-tag
+            ブランド名から探す
+            = f.text_field :name
+          .search-side-bar__box__form-group
+            .far.fa-check-square
+            サイズを指定する
+            = f.text_field :name
+          .search-side-bar__box__form-group
+            .fas.fa-coins
+            価格
+            = f.text_field :name
+            = f.text_field :name
+          .search-side-bar__box__form-group
+            .fas.fa-star
+            商品の状態
+            %br
+            - @condition.each do |c|
+              .checkbox
+                .checkbox__content
+                  = f.check_box :checkbox, class: "check-box"
+                  .checkbox__content__text
+                    = c.name
+          .search-side-bar__box__form-group
+            .fas.fa-truck
+            配送料の負担
+            %br
+            - @delivery_charge.each do |c|
+              .checkbox
+                .checkbox__content
+                  = f.check_box :checkbox, class: "check-box"
+                  .checkbox__content__text
+                    = c.name
+          .search-side-bar__box__form-group
+            .fas.fa-shopping-cart
+            販売状況
+            %br
+            .checkbox
+              .checkbox__content
+                = f.check_box :checkbox, class: "check-box"
+                .checkbox__content__text
+                  すべて
+            .checkbox
+              .checkbox__content
+                = f.check_box :checkbox, class: "check-box"
+                .checkbox__content__text
+                  販売中
+            .checkbox
+              .checkbox__content
+                = f.check_box :checkbox, class: "check-box"
+                .checkbox__content__text
+                  売り切れ
+          .search-side-bar__box__btn-box
+            .search-side-bar__box__btn-box__btn
+              = f.submit 'クリア', class: 'gray'
+            .search-side-bar__box__btn-box__btn
+              = f.submit '完了', class: 'red'
+    .search-main__container
+      .search-main__container__head
+        本
+        %span
+          の検索結果
+      .search-main__container__number
+        1 - 100件表示
+      .search-main__container__box
+        .search-main__container__box__contents
+          .search-main__container__box__contents__images
+            - @products.each do |product|
+              .search-main__container__box__contents__images__box
+                = link_to product_path(product.id) do
+                  .search-main__container__box__contents__images__box__image
+                    = image_tag "#{product.images[0].image}"
+                  .search-main__container__box__contents__images__box__price
+                    = "¥#{product.price}"
+                  .search-main__container__box__contents__images__box__text
+                    %div
+                      = product.item_name
+  = render 'shared/footer'
+

@@ -1,6 +1,8 @@
 .wrapper
   = render "shared/header"
   = render 'products/exhibit-btn'
+  - breadcrumb :category_index
+  = render 'layouts/breadcrumbs'
   .categories-main
     .categories-main__container
       .categories-main__container__top

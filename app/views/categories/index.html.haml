@@ -1,0 +1,25 @@
+.wrapper
+  = render "shared/header"
+  = render 'products/exhibit-btn'
+  .categories-main
+    .categories-main__container
+      .categories-main__container__top
+        カテゴリー一覧
+      .categories-main__container__list
+        - @parent_categories.each do |parent_category|
+          .categories-main__container__list__parents
+            = parent_category.name
+      .categories-main__container__boxs
+        - @parent_categories.each do |parent_category|
+          .categories-main__container__boxs__box
+            .categories-main__container__boxs__box__head
+              = parent_category.name
+            .categories-main__container__boxs__box__list
+              = link_to "すべて", category_path(parent_category.id), class:"all"
+              - parent_category.children.each do |child_category|
+                .categories-main__container__boxs__box__list__children
+                  = child_category.name
+                .categories-main__container__boxs__box__list__grand-children
+                  - child_category.subtree.each do |grand_child_category|
+                    = link_to "#{grand_child_category.name}", category_path(grand_child_category.id), class:"gland-children"
+  = render "shared/footer"

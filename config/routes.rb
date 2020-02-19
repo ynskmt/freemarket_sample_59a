@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     collection do
       get 'logout'
       get 'listing'
+      get 'card'
     end
 
     member do
@@ -47,6 +48,7 @@ Rails.application.routes.draw do
 
   resources :cards, only: [:new, :create, :destroy] do
     collection do
+      get 'new_card'
       post 'pay'
     end
   end

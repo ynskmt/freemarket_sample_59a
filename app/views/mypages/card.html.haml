@@ -1,0 +1,43 @@
+.mypage-wrapper
+  = render 'shared/header'
+  .mypage-main
+    = render 'side-bar'
+    .mypage-main__container
+      .mypage-main__container__card-box
+        .mypage-main__container__card-box__head
+          支払い方法
+        -if @card_information.blank?
+          .mypage-main__container__card-box__content
+            .mypage-main__container__card-box__content__top
+              .mypage-main__container__card-box__content__top__text
+                クレジットカード一覧
+              .mypage-main__container__card-box__content__top__add
+                .mypage-main__container__card-box__content__top__add__btn
+                  = link_to new_card_cards_path do
+                    .far.fa-credit-card
+                    クレジットカードを追加する
+                
+            .mypage-main__container__card-box__content__bottom
+              = link_to "#" do
+                支払方法について
+                .fa.fa-chevron-right
+        -else
+          .mypage-main__container__card-box__content
+            .mypage-main__container__card-box__content__top
+              .mypage-main__container__card-box__content__top__text
+                クレジットカード一覧
+              .mypage-main__container__card-box__content__top__card
+                .mypage-main__container__card-box__content__top__card__name
+                  VISA
+                .mypage-main__container__card-box__content__top__card__num
+                  ="************"+@card_information.last4
+                .mypage-main__container__card-box__content__top__card__date
+                  ="#{@card_information.exp_month}/#{@card_information.exp_year%100}"
+                .mypage-main__container__card-box__content__top__card__delete
+                  = link_to card_path(@card), {method: :delete} do
+                    削除する
+            .mypage-main__container__card-box__content__bottom
+              = link_to "#" do
+                支払方法について
+                .fa.fa-chevron-right
+  = render 'shared/footer'

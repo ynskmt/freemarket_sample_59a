@@ -3,6 +3,8 @@
 @import "./font-awesome";
 @import "mixin/mixins";
 
+@import "card/new_card";
+
 @import "devise/registrations/registration";
 @import "devise/sessions/new";
 @import "devise/shared/header-registration";
@@ -15,6 +17,7 @@
 @import "mypage/listing";
 @import "mypage/profile";
 @import "mypage/identification";
+@import "mypage/card";
 
 @import "product/index";
 @import "product/new";

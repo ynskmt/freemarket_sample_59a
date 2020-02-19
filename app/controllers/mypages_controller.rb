@@ -35,6 +35,15 @@ class MypagesController < ApplicationController
     @products = current_user.products
   end
 
+  def card
+    @card = current_user.card
+    if @card.present?
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_PRIVATE_KEY)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
+    end
+  end
+
 
   private
   def user_params

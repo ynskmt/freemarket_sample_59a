@@ -61,4 +61,6 @@ Rails.application.routes.draw do
   end
 
   resources :searches, only: [:index]
+
+  resources :categories, only: [:index, :show]
 end

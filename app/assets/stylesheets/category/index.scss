@@ -1,0 +1,77 @@
+.categories-main {
+  background-color: #eee;
+  &__container {
+    margin: 0 auto;
+    padding: 40px 0;
+    width: 700px;
+    &__top {
+      padding: 8px 0;
+      font-size: 22px;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+    &__list {
+      &__parents {
+        display: inline-block;
+        border-radius: 4px;
+        min-width: 80px;
+        height: 40px;
+        box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+        padding: 0 30px;
+        margin: 5px;
+        color: #333;
+        font-size: 16px;
+        line-height: 40px;
+        background-color: #fff;
+      }
+    }
+    &__boxs {
+      margin: 0 auto;
+      &__box {
+        border-radius: 4px;
+        margin-bottom: 40px;
+        background-color: #fff;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &__head {
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          padding: 5px 30px 0 30px;
+          height: 40px;
+          color: #fff;
+          background-color: #ea352d;
+          font-size: 20px;
+          font-weight: 600;
+        }
+        &__list {
+          padding: 24px 30px 10px 30px;
+          .all {
+            font-size: 16px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            color: #0099e8;
+          }
+          &__children {
+            padding-top: 15px;
+            padding-bottom: 5px;
+          }
+          &__grand-children {
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            .gland-children {
+              display: inline-block;
+              width: 45%;
+              padding: 0 20px 0 0;
+              font-size: 16px;
+              margin-top: 8px;
+              margin-bottom: 8px;
+              color: #0099e8;
+            }
+          }
+        }
+      }
+    }
+  }
+}

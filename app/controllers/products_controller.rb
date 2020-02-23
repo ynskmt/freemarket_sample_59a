@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :header_second_category, :header_third_category]
   before_action :set_product, only: [:detail, :show, :destroy]
-  before_action :set_category_product, only: [:index, :new, :edit]
+  before_action :set_category_product, only: [:index, :new, :create, :edit]
 
   def index
     @ladies = Product.where(category_id:1..199).order("created_at DESC").limit(10)
@@ -46,6 +46,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    redirect_to root_path unless @product.user_id == current_user.id
   end
 
   def update

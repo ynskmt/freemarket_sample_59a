@@ -76,50 +76,6 @@ header {
           @include iconSet(rgb(234, 53, 45), 10px)
         }
       }
-      &__menu {
-        left: 0px;
-        position: absolute;
-        top: 44px;
-        z-index: 1;
-        display: none;
-        &__list a {
-          text-decoration : none;
-          color : inherit;
-          display: block;
-          font-size: 14px;
-        }
-        &__list {
-          @include listBoxColorSet;
-          width: 224px;
-          &__ladies {
-            width: 224px;
-            &__list a {
-              padding: 8px 16px;
-            }
-            &__list {
-              @include listBoxColorSet;
-              bottom: 0px;
-              left: 224px;
-              position: absolute;
-              top: 0px;
-              width: 224px;
-              display: none;
-              &__tops {
-                width: 224px;
-                &__list {
-                  @include listBoxColorSet;
-                  bottom: 0px;
-                  left: 224px;
-                  position: absolute;
-                  top: 0px;
-                  width: 320px;
-                  display: none;
-                }
-              }
-            }
-          }
-        }
-      }
     }
     &__brand {
       cursor: pointer;

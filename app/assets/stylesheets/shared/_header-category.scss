@@ -14,7 +14,10 @@
     border: 2px solid #eee;
     line-height: 42px;
     &__list {
-      padding: 5px 8px;
+      a {
+        display: block;
+        padding: 5px 8px;
+      }
     }
     .active-list-red {
       background-color: red;
@@ -31,8 +34,11 @@
     height: 700px;
     border: 2px solid #eee;
     &__list {
-      padding: 2px;
-      line-height: 30px;
+      a {
+        display: block;
+        padding: 2px;
+        line-height: 30px;
+      }
     }
     .active-list-gray {
       background-color: #eee
@@ -50,9 +56,11 @@
     border: 2px solid #eee;
     overflow-wrap: normal;
     &__list {
-      padding: 2px;
-      line-height: 20px;
-      overflow-wrap: normal;
+      a {
+        display: block;
+        padding: 2px;
+        line-height: 20px;
+      }
     }
     .active-list-gray {
       background-color: #eee

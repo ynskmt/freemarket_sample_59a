@@ -40,24 +40,23 @@ $(document).on("turbolinks:load", function() {
 
   function showSecondCategory(second){
     let secondCategory = `<div class="header-category__box__second__list" data-category-id="${second.id}" >
-                  <div>
-                  ${second.name}
-                    </div>
-                    </div>`;
+                            <a href="/categories/${second.id}">
+                              ${second.name}
+                            </a>
+                          </div>`;
     $(".header-category__box__second").append(secondCategory);
   }
 
   function showThirdCategory(third){
     let thirdCategory = `<div class="header-category__box__third__list" data-category-id="${third.id}">
-                  <div>
-                  ${third.name}
-                    </div>
-                    </div>`;
+                          <a href="/categories/${third.id}">
+                            ${third.name}
+                          </div>
+                        </div>`;
     $(".header-category__box__third").append(thirdCategory);
   }
 
   $(".header-category__box__first__list").mouseover(function() {
-    console.log(this)
     let first_category_id = $(this).attr("data-category-id");
     $(this).last().addClass("active-list-red");
     $('.header-category__box__first__list').mouseout(function() {
@@ -79,7 +78,6 @@ $(document).on("turbolinks:load", function() {
   })
 
   $(document).on("mouseover", ".header-category__box__second__list", function(){
-    console.log(this)
     let second_category_id = $(this).attr("data-category-id");
     $(this).last().addClass("active-list-gray");
     $('.header-category__box__second__list').mouseout(function() {

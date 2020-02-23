@@ -3,11 +3,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_search
+  before_action :set_category
+
   
   private
   def set_search
     @q = Product.ransack(params[:q])
     @products = @q.result(distinct: true)
+  end
+
+  def set_category
+    @category = Category.where(ancestry: nil)
   end
   
   def production?

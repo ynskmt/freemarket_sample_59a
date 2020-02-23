@@ -1,4 +1,4 @@
-$(document).on("ready turbolinks:load", function() {
+$(document).on("turbolinks:load", function() {
   $('.slider').slick({
     prevArrow:'.slick-prev',
     nextArrow:'.slick-next',

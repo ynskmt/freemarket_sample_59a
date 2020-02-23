@@ -1,11 +1,20 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :header_second_category, :header_third_category]
   before_action :set_product, only: [:detail, :show, :destroy]
-  before_action :set_category, only: [:new, :edit]
+  before_action :set_category_product, only: [:index, :new, :edit]
 
   def index
     @ladies = Product.where(category_id:1..199).order("created_at DESC").limit(10)
     @mens = Product.where(category_id:200..345).order("created_at DESC").limit(10)
+  end
+
+  def header_second_category
+    first_category = Category.find(params[:first_category_id]).name
+    @second_category = Category.find_by(name: first_category, ancestry: nil).children
+  end
+
+  def header_third_category
+    @third_category = Category.find(params[:second_category_id]).children
   end
 
   def new
@@ -101,9 +110,8 @@ class ProductsController < ApplicationController
     @parent = @child.parent
   end
 
-  def set_category
+  def set_category_product
     @condition = Condition.all
-    @category = Category.where(ancestry: nil)
     @delivery_charge = DeliveryCharge.all
     @delivery_way = DeliveryWay.all
     @delivery_area = DeliveryArea.all

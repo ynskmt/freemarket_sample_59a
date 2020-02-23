@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       get "category_children", defaults: { format: 'json' }
       get "category_grandchildren", defaults: { format: 'json' }
       get 'get_image', defaults: { format: 'json' }
+      get 'header_second_category', defaults: { format: 'json' }
+      get 'header_third_category', defaults: { format: 'json' }
     end
     member do
       get 'detail'

@@ -57,7 +57,6 @@ $(document).on("turbolinks:load", function() {
   }
 
   $(".header-category__box__first__list").mouseover(function() {
-    console.log(this)
     let first_category_id = $(this).attr("data-category-id");
     $(this).last().addClass("active-list-red");
     $('.header-category__box__first__list').mouseout(function() {
@@ -79,7 +78,6 @@ $(document).on("turbolinks:load", function() {
   })
 
   $(document).on("mouseover", ".header-category__box__second__list", function(){
-    console.log(this)
     let second_category_id = $(this).attr("data-category-id");
     $(this).last().addClass("active-list-gray");
     $('.header-category__box__second__list').mouseout(function() {

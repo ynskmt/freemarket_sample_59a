@@ -14,7 +14,10 @@
     border: 2px solid #eee;
     line-height: 42px;
     &__list {
-      padding: 5px 8px;
+      a {
+        display: block;
+        padding: 5px 8px;
+      }
     }
     .active-list-red {
       background-color: red;

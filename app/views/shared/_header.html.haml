@@ -12,9 +12,19 @@
     .bottom-content
       .bottom-content__item
         .bottom-content__item__category
-          = link_to categories_path ,class: "bottom-content__item__category__part" do
-            = icon('fas', 'list', class: 'bottom-content__item__category__part__icon')
-            カテゴリーから探す
+          .header-category__link
+            = link_to categories_path ,class: "bottom-content__item__category__part" do
+              = icon('fas', 'list', class: 'bottom-content__item__category__part__icon')
+              カテゴリーから探す
+          .header-category__box
+            .header-category__box__first
+              - @category.each do |category|
+                .header-category__box__first__list{data: {category: {id: category.id}}}
+                  = link_to category_path(category.id) do
+                    = category.name
+            .header-category__box__second
+            .header-category__box__third
+
         .bottom-content__item__brand
           = link_to "#", class: "bottom-content__item__brand__part" do
             = icon('fas', 'tag', class: 'bottom-content__item__brand__part__icon')

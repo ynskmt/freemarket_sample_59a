@@ -4,11 +4,11 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
-    if @category.has_children?
-      @category_products = Product.where(category_id: @category.descendant_ids).order("id DESC").limit(100)
+    @show_category = Category.find(params[:id])
+    if @show_category.has_children?
+      @category_products = Product.where(category_id: @show_category.descendant_ids).order("id DESC").limit(100)
     else
-      @category_products = Product.where(category_id: @category.id).order("id DESC").limit(100)
+      @category_products = Product.where(category_id: @show_category.id).order("id DESC").limit(100)
     end
   end
 end

@@ -40,19 +40,19 @@ $(document).on("turbolinks:load", function() {
 
   function showSecondCategory(second){
     let secondCategory = `<div class="header-category__box__second__list" data-category-id="${second.id}" >
-                  <div>
-                  ${second.name}
-                    </div>
-                    </div>`;
+                            <a href="/categories/${second.id}">
+                              ${second.name}
+                            </a>
+                          </div>`;
     $(".header-category__box__second").append(secondCategory);
   }
 
   function showThirdCategory(third){
     let thirdCategory = `<div class="header-category__box__third__list" data-category-id="${third.id}">
-                  <div>
-                  ${third.name}
-                    </div>
-                    </div>`;
+                          <a href="/categories/${third.id}">
+                            ${third.name}
+                          </div>
+                        </div>`;
     $(".header-category__box__third").append(thirdCategory);
   }
 

@@ -10,6 +10,7 @@
             .signin-main__container__top__btn__new
               新規会員登録
       .signin-main__container__middle
+        （注意）本番環境では実装していません
         .signin-main__container__middle--facebook
           = link_to user_facebook_omniauth_authorize_path, method: :post do
             = icon("fab", "facebook-square", class: "icon")

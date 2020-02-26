@@ -13,7 +13,8 @@
   &__box {
     &__top {
       padding: 72px 16px 24px;
-      background-image: url(meadow.jpg);
+      background-image: image-url("meadow.jpg");
+      background-size: cover;
       height: 200px;
       width: 100%;
       &__human {

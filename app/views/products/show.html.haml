@@ -11,6 +11,9 @@
               .sold-out__text 
                 SOLD
           = image_tag "#{@product.images[0].image}"
+          .item-main__container__content__photos
+            - @product.images.each do |image|
+              = image_tag "#{image.image}"
         %table.item-main__container__content__detail-table
           %tbody
             %tr

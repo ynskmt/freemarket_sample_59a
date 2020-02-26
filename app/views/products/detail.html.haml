@@ -7,6 +7,9 @@
       .item-main__container__content
         .item-main__container__content__photo
           = image_tag "#{@product.images[0].image}"
+          .item-main__container__content__photos
+            - @product.images.each do |image|
+              = image_tag "#{image.image}"
         %table.item-main__container__content__detail-table
           %tbody
             %tr

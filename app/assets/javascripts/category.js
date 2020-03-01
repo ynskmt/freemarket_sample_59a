@@ -53,7 +53,7 @@ $(document).on('turbolinks:load', function() {
 
   $('.category').on('change', '#child_category', function () {
     let childId = $('#child_category option:selected').data('category');
-    if (childId != "") {
+    if (childId != "---") {
       $.ajax({
         url: '/products/category_grandchildren',
         type: 'GET',

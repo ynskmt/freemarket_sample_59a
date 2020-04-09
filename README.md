@@ -10,15 +10,15 @@
 - URL http://54.250.97.199/
 - ID/Pass   ID: tkfkn  Pass: 5961
 - テスト用アカウント①
-    メールアドレス: sakamoto-ryoma@fmarket.com
-    パスワード: sakamoto
+  - メールアドレス: sakamoto-ryoma@fmarket.com
+  - パスワード: sakamoto
 - テスト用アカウント②
-    メールアドレス名: toyotomi-hideyoshi@fmarket.com
-    パスワード: toyotomi
+  - メールアドレス名: toyotomi-hideyoshi@fmarket.com
+  - パスワード: toyotomi
 - クレジットカードを新規登録する場合
-    番号：4242424242424242
-    期限：1/29
-    セキュリティコード：123
+  - 番号：4242424242424242
+  - 期限：1/29
+  - セキュリティコード：123
 
 # 開発環境
 - Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code

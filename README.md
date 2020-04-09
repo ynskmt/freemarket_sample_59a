@@ -13,7 +13,7 @@
   - メールアドレス: sakamoto-ryoma@fmarket.com
   - パスワード: sakamoto
 - テスト用アカウント②
-  - メールアドレス名: toyotomi-hideyoshi@fmarket.com
+  - メールアドレス: toyotomi-hideyoshi@fmarket.com
   - パスワード: toyotomi
 - クレジットカードを新規登録する場合
   - 番号：4242424242424242

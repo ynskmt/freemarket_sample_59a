@@ -8,7 +8,9 @@
 
 # 本番環境
 - URL http://54.250.97.199/
-- ID/Pass   ID: tkfkn  Pass: 5961
+- ID/Pass   
+  - ID: tkfkn  
+  - Pass: 5961
 - テスト用アカウント①
   - メールアドレス: sakamoto-ryoma@fmarket.com
   - パスワード: sakamoto
